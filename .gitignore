@@ -27,3 +27,6 @@
 *.exe
 *.out
 *.app
+*.opensdf
+TestGraphics.sdf
+*.sdf

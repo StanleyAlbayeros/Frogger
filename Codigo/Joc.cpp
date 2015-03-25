@@ -101,20 +101,21 @@ void mostraVides (int vides, Grafic granotaVida)
 int juga(int nivell)
 {
 	t_programStatus estat;
-
+	Pantalla();
 	// Inicialitzem
 	InitGame (estat);
 
-	Grafic granota;
+	//Grafic granota;
 	Grafic fons;
 	Grafic cotxe;
 
-	granota.crea("data/GraficsGranota/Granota_Amunt_1.png");
+	//granota.crea("data/GraficsGranota/Granota_Amunt_1.png");
+
 	fons.crea("data/GraficsGranota/fons.png");
 	cotxe.crea("data/GraficsGranota/Cotxe_1.png");
 
 	int posicioCotxeX, posicioCotxeY; // Posicio del cotxe per coordenades (X,Y)
-	int posicioGranotaX, posicioGranotaY;   // Posicio de la granota per coordenades (X,Y)
+	//int posicioGranotaX, posicioGranotaY;   // Posicio de la granota per coordenades (X,Y)
 	//int DESPLACAMENT_GRANOTA = granota.getScaleY()/2; //Desplaçament de la granota
 	//int DESPLACAMENT_COTXE= 4; //Desplaçament del cotxe
 	char tecla = 0; // Variable char on desar la tecla pulsada
@@ -134,8 +135,8 @@ int juga(int nivell)
 	srand((unsigned) time(NULL));
 
 	// Inicialitzaci� de la posici� de la granota
-	posicioGranotaX = INICI_X + ((FI_X - INICI_X) / 2) - granota.getScaleX()/2;
-	posicioGranotaY = INICI_Y_GRANOTA;
+	//posicioGranotaX = INICI_X + ((FI_X - INICI_X) / 2) - granota.getScaleX()/2;
+	//posicioGranotaY = INICI_Y_GRANOTA;
 
 	// Inicialitzaci� de la posici� del cotxe
 	posicioCotxeX = INICI_X;

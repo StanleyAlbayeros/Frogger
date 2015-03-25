@@ -40,7 +40,8 @@ Pantalla::~Pantalla()
  */
 void Pantalla::inicia(int nivell)
 {
-	// TODO emplenar
+	
+
 }
 
 /**
@@ -49,8 +50,7 @@ void Pantalla::inicia(int nivell)
  */
 int Pantalla::triaCarril()
 {
-	// TODO emplenar
-	return 0; // TODO modificar
+	return (INICI_Y+3) + (rand()% ((FI_Y-35)-INICI_Y));
 }
 
 /**
@@ -107,5 +107,23 @@ bool Pantalla::haMortLaGranota()
  */
 void Pantalla::mouGranota(int direccio)
 {
-	// TODO emplenar
+	switch (direccio){
+
+		case 1:
+				Granota.mouEsquerra;
+		break;
+			
+		case 2:
+				Granota.mouDreta;
+		break;
+
+		case 3:
+				Granota.mouAmunt;
+		break;
+
+		case 4:
+				Granota.mouAvall;
+		break;
+
+	}
 }

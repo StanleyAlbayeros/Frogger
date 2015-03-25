@@ -1,4 +1,6 @@
 #include "Granota.h"
+#include "Pantalla.h"
+#include "Joc.h"
 
 /**
  * Constructor per defecte.
@@ -42,7 +44,7 @@ Area Granota::getAreaOcupada()
  */
 void Granota::dibuixa()
 {
-	// TODO emplenar
+	m_grafic.dibuixa(m_posicioX,m_posicioY);
 }
 
 /**
@@ -50,7 +52,10 @@ void Granota::dibuixa()
  */
 void Granota::mouEsquerra()
 {
-	// TODO emplenar
+	if(m_posicioX>(INICI_X+DESPLACAMENT_GRANOTA))
+	{	
+		m_posicioX -= DESPLACAMENT_GRANOTA;
+	}
 }
 
 /**
@@ -58,7 +63,10 @@ void Granota::mouEsquerra()
  */
 void Granota::mouDreta()
 {
-	// TODO emplenar
+	if ((m_posicioX+m_grafic.getScaleX())<(FI_X-DESPLACAMENT_GRANOTA))
+	{
+		m_posicioX += DESPLACAMENT_GRANOTA;
+	}
 }
 
 /**
@@ -66,7 +74,11 @@ void Granota::mouDreta()
  */
 void Granota::mouAmunt()
 {
-	// TODO emplenar
+	if((m_posicioY+m_grafic.getScaleY())>(INICI_Y-DESPLACAMENT_GRANOTA))
+	{
+		m_posicioY -= DESPLACAMENT_GRANOTA;
+	}
+	
 }
 
 /**
@@ -74,7 +86,10 @@ void Granota::mouAmunt()
  */
 void Granota::mouAvall()
 {
-	// TODO emplenar
+	if((m_posicioY+m_grafic.getScaleY())<(FI_Y-DESPLACAMENT_GRANOTA))
+	{
+		m_posicioY += DESPLACAMENT_GRANOTA;
+	}
 }
 
 /**
@@ -82,5 +97,6 @@ void Granota::mouAvall()
  */
 void Granota::mouAPosicioInicial()
 {
-	// TODO emplenar
+	m_posicioX = INICI_X + ((FI_X - INICI_X) / 2) - m_grafic.getScaleX()/2;
+	m_posicioY = INICI_Y_GRANOTA;
 }

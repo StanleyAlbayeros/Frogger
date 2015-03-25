@@ -36,6 +36,8 @@
     <ClCompile Include="lib\video.cpp">
       <Filter>lib</Filter>
     </ClCompile>
+    <ClCompile Include="GestioResultats.cpp" />
+    <ClCompile Include="Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Joc.h" />
@@ -78,6 +80,8 @@
     <ClInclude Include="lib\video.h">
       <Filter>lib</Filter>
     </ClInclude>
+    <ClInclude Include="GestioResultats.h" />
+    <ClInclude Include="Menu.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="lib">

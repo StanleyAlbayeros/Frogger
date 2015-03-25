@@ -1,0 +1,73 @@
+﻿Build started 25/03/2015 5:15:29 PM.
+     1>Project "C:\Users\Stanley Albayeros\Documents\Classes\Frogger\TestGraphics.vcxproj" on node 2 (build target(s)).
+       Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+     1>InitializeBuildStatus:
+         Creating "Release\TestGraphics.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GestioResultats.cpp Joc.cpp lib\animaciones.cpp lib\debug.cpp lib\event.cpp lib\Grafic.cpp lib\image_png.cpp lib\keyboard.cpp lib\mouse.cpp lib\sprites.cpp lib\video.cpp Menu.cpp Principal.cpp
+         GestioResultats.cpp
+     1>GestioResultats.cpp(11): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>GestioResultats.cpp(45): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>GestioResultats.cpp(53): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(304) : see declaration of 'scanf'
+         Joc.cpp
+         animaciones.cpp
+         debug.cpp
+         event.cpp
+     1>lib\event.cpp(173): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(249) : see declaration of 'freopen'
+     1>lib\event.cpp(174): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(249) : see declaration of 'freopen'
+         Grafic.cpp
+         image_png.cpp
+     1>lib\image_png.cpp(74): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(234) : see declaration of 'fopen'
+         keyboard.cpp
+         mouse.cpp
+         sprites.cpp
+         video.cpp
+         Menu.cpp
+         Principal.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt lib\sound.c lib\stb_vorbis.c
+         sound.c
+     1>lib\sound.c(128): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(234) : see declaration of 'fopen'
+     1>lib\sound.c(411): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(234) : see declaration of 'fopen'
+         stb_vorbis.c
+     1>lib\stb_vorbis.c(4668): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(234) : see declaration of 'fopen'
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Stanley Albayeros\Documents\Classes\Frogger\\Program\TestGraphics.exe" /INCREMENTAL:NO /NOLOGO freetype.lib libpng.lib SDL2.lib SDL2main.lib zlib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\TestGraphics.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Stanley Albayeros\Documents\Classes\Frogger\Program\TestGraphics.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Stanley Albayeros\Documents\Classes\Frogger\\Program\TestGraphics.lib" /MACHINE:X86 Release\GestioResultats.obj
+         Release\Joc.obj
+         Release\animaciones.obj
+         Release\debug.obj
+         Release\event.obj
+         Release\Grafic.obj
+         Release\image_png.obj
+         Release\keyboard.obj
+         Release\mouse.obj
+         Release\sound.obj
+         Release\sprites.obj
+         Release\stb_vorbis.obj
+         Release\video.obj
+         Release\Menu.obj
+         Release\Principal.obj
+     1>LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+         Generating code
+     1>c:\users\stanley albayeros\documents\classes\frogger\lib\event.cpp(221): warning C4715: 'InitGame' : not all control paths return a value
+         Finished generating code
+         TestGraphics.vcxproj -> C:\Users\Stanley Albayeros\Documents\Classes\Frogger\\Program\TestGraphics.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Stanley Albayeros\Documents\Classes\Frogger\\Program\TestGraphics.exe;#1" /manifest Release\TestGraphics.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Release\TestGraphics.unsuccessfulbuild".
+         Touching "Release\TestGraphics.lastbuildstate".
+     1>Done Building Project "C:\Users\Stanley Albayeros\Documents\Classes\Frogger\TestGraphics.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:07.24

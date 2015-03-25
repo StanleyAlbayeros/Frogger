@@ -21,14 +21,14 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v100</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v100</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -85,6 +85,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GestioResultats.cpp" />
     <ClCompile Include="Joc.cpp" />
     <ClCompile Include="lib\animaciones.cpp" />
     <ClCompile Include="lib\debug.cpp" />
@@ -97,9 +98,11 @@
     <ClCompile Include="lib\sprites.cpp" />
     <ClCompile Include="lib\stb_vorbis.c" />
     <ClCompile Include="lib\video.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Principal.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GestioResultats.h" />
     <ClInclude Include="Joc.h" />
     <ClInclude Include="lib\animaciones.h" />
     <ClInclude Include="lib\debug.h" />
@@ -114,6 +117,7 @@
     <ClInclude Include="lib\sprites.h" />
     <ClInclude Include="lib\stb_vorbis.h" />
     <ClInclude Include="lib\video.h" />
+    <ClInclude Include="Menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -12,7 +12,9 @@
  */
 int esGespa(int x, int y)
 {
+
 	return (y >= FI_Y - 1) || (y < INICI_Y + 3);
+
 }
 
 

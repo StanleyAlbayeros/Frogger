@@ -5,12 +5,12 @@
 // nº de píxels que es desplaça el cotxe a cada moviment del nivell 1
 #define DESPLACAMENT_COTXE 5
 
-class Vehicle
+class Cotxe
 {
 public:
-	Vehicle();
-	Vehicle(Grafic grafic, int velocitat);
-	~Vehicle();
+	Cotxe();
+	Cotxe(Grafic grafic, int velocitat);
+	~Cotxe();
 	Area getAreaOcupada();
 	void dibuixa();
 	void mou();

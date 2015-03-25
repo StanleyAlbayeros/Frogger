@@ -2,6 +2,8 @@
 #include "lib\libreria.h"
 #include "lib\event.h"
 #include "lib\Grafic.h"
+#include "Pantalla.h"
+#include "Granota.h"
 
 
 /**
@@ -113,14 +115,16 @@ int juga(int nivell)
 
 	int posicioCotxeX, posicioCotxeY; // Posicio del cotxe per coordenades (X,Y)
 	int posicioGranotaX, posicioGranotaY;   // Posicio de la granota per coordenades (X,Y)
-	int DESPLACAMENT_GRANOTA = granota.getScaleY()/2; //Desplaçament de la granota
-	int DESPLACAMENT_COTXE= 4; //Desplaçament del cotxe
+	//int DESPLACAMENT_GRANOTA = granota.getScaleY()/2; //Desplaçament de la granota
+	//int DESPLACAMENT_COTXE= 4; //Desplaçament del cotxe
 	char tecla = 0; // Variable char on desar la tecla pulsada
 	int velocitatCotxe= nivell*DESPLACAMENT_COTXE;
 	int contFreCotxe = velocitatCotxe / nivell*2; // Comptador per a frenar l'avanç del cotxe
 	int haMortLaGranota = 0; // Variable boleana per saber si la granota esta morta
 	int punts = 0; // Punts acumulats durant la partida
 	int vides = 3; // Vides que li queden a la granota
+
+	//Pantalla();
 
 
 	//Mostrem la finestra

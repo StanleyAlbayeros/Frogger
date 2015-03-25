@@ -1,19 +1,19 @@
-#include "Vehicle.h"
+#include "Cotxe.h"
 #include "Pantalla.h"
 
 /**
  * Constructor per defecte.
  */
-Vehicle::Vehicle()
+Cotxe::Cotxe()
 {
 }
 
 /**
- * Constructor del Vehicle.
+ * Constructor del Cotxe.
  * @param grafic Grafic amb el que ilustrar el vehicle
  * @param velocitat Velocitat de moviment
  */
-Vehicle::Vehicle(Grafic grafic, int velocitat)
+Cotxe::Cotxe(Grafic grafic, int velocitat)
 {
 	m_grafic = grafic;
 	m_velocitat = velocitat;
@@ -22,14 +22,14 @@ Vehicle::Vehicle(Grafic grafic, int velocitat)
 /**
  * Destructor per defecte.
  */
-Vehicle::~Vehicle()
+Cotxe::~Cotxe()
 {
 }
 
 /**
  * Retorna l'area ocupada pel vehicle.
  */
-Area Vehicle::getAreaOcupada()
+Area Cotxe::getAreaOcupada()
 {
 	// TODO emplenar
 	return Area(); // TODO modificar
@@ -38,7 +38,7 @@ Area Vehicle::getAreaOcupada()
 /**
  * Dibuixa el vehicle a la posició actual.
  */
-void Vehicle::dibuixa()
+void Cotxe::dibuixa()
 {
 	// TODO emplenar
 }
@@ -46,7 +46,7 @@ void Vehicle::dibuixa()
 /**
  * Mou el vehicle tenint en compte la velocitat d'aquest.
  */
-void Vehicle::mou()
+void Cotxe::mou()
 {
 	// TODO emplenar
 }
@@ -56,7 +56,7 @@ void Vehicle::mou()
  * @param iniciXCarril Coordenada X inicial del carril
  * @param iniciYCarril Coordenada Y del carril
  */
-void Vehicle::mouAIniciCarril(int iniciXCarril, int iniciYCarril)
+void Cotxe::mouAIniciCarril(int iniciXCarril, int iniciYCarril)
 {
 	// TODO emplenar
 }

@@ -3,7 +3,7 @@
 #include "lib\Grafic.h"
 
 // nº de píxels que es desplaça la granota a cada moviment
-#define DESPLACAMENT_GRANOTA 5
+#define DESPLACAMENT_GRANOTA 46
 
 class Granota
 {

@@ -2,7 +2,7 @@
 #include "Area.h"
 #include "lib\Grafic.h"
 #include "Cova.h"
-#include "Vehicle.h"
+#include "Cotxe.h"
 #include "Granota.h"
 
 // Inici del taulell respecte la cantonada superior esquerre
@@ -27,17 +27,17 @@ public:
 	void dibuixa();
 	void mouGranota(int direccio);
 	bool esGranotaDinsCova();
-	void mouVehicle();
+	void mouCotxe();
 	bool haMortLaGranota();
 private:
 	Grafic m_graficFons;
 	Grafic m_graficCova;
 	Grafic m_graficGranotaAmunt;
-	Grafic m_graficVehicle;
+	Grafic m_graficCotxe;
 	Area m_areaTotal;
 	Cova m_cova;
 	Granota m_granota;
-	Vehicle m_vehicle;
+	Cotxe m_cotxe;
 	int m_iniciCarrilsY;
 	int m_nCarrils;
 	int triaCarril();

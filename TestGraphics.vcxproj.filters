@@ -42,7 +42,7 @@
     <ClCompile Include="Codigo\Cova.cpp" />
     <ClCompile Include="Codigo\Granota.cpp" />
     <ClCompile Include="Codigo\Pantalla.cpp" />
-    <ClCompile Include="Codigo\Vehicle.cpp" />
+    <ClCompile Include="Codigo\Cotxe.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\animaciones.h">
@@ -89,9 +89,9 @@
     <ClInclude Include="Codigo\GestioResultats.h" />
     <ClInclude Include="Codigo\Granota.h" />
     <ClInclude Include="Codigo\Pantalla.h" />
-    <ClInclude Include="Codigo\Vehicle.h" />
     <ClInclude Include="Codigo\Area.h" />
     <ClInclude Include="Codigo\Cova.h" />
+    <ClInclude Include="Codigo\Cotxe.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="lib">

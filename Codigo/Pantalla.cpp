@@ -41,7 +41,7 @@ Pantalla::~Pantalla()
 void Pantalla::inicia(int nivell)
 {
 	
-
+	//TODO
 }
 
 /**

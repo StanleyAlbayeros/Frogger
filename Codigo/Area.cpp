@@ -72,8 +72,25 @@ int Area::getMaxY()
  */
 bool Area::pertany(int x, int y)
 {
-	// TODO emplenar
-	return true; // TODO modificar
+	bool entreX=false;
+	bool entreY=false;
+	bool pertany=false;
+	
+	if ((x<m_maxX)&&(x>m_minX))
+	{
+		entreX=true;
+	}
+
+	if ((y<m_maxY)&&(y>m_minY))
+	{
+		entreY=true;
+	}
+
+	if ((entreY)&&(entreX))
+	{
+		pertany=true;
+	}
+	return pertany;
 }
 
 /**
@@ -83,8 +100,21 @@ bool Area::pertany(int x, int y)
  */
 bool Area::inclou(Area area)
 {
-	// TODO emplenar
-	return true; // TODO modificar
+	int areaminX = area.getMinX();
+	int areamaxX = area.getMaxX();
+	int areaminY = area.getMinY();
+	int areamaxY = area.getMaxY();
+	int inclou = false;
+
+	if ( Area.pertany(areaminX , areaminY) 
+		|| Area.pertany(areaminX , areamaxY) 
+		|| Area.pertany(areamaxX , areaminY) 
+		|| Area.pertany(areamaxX , areamaxY));
+	{
+		inclou = true;
+	}
+
+	return inclou;
 }
 
 /**
@@ -96,6 +126,19 @@ bool Area::inclou(Area area)
  */
 bool Area::solapa(Area area)
 {
-	// TODO emplenar
-	return true; // TODO modificar
+	int areaminX = area.getMinX();
+	int areamaxX = area.getMaxX();
+	int areaminY = area.getMinY();
+	int areamaxY = area.getMaxY();
+	int solapa = false;
+
+	if ( Area.pertany(areaminX , areaminY) 
+		&& Area.pertany(areaminX , areamaxY) 
+		&& Area.pertany(areamaxX , areaminY) 
+		&& Area.pertany(areamaxX , areamaxY));
+	{
+		inclou = true;
+	}
+
+	return solapa;
 }

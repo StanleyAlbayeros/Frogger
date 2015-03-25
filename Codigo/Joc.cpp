@@ -104,7 +104,7 @@ int juga(int nivell)
 	Pantalla();
 	// Inicialitzem
 	InitGame (estat);
-
+	Granota granota;
 	//Grafic granota;
 	Grafic fons;
 	Grafic cotxe;
@@ -135,8 +135,8 @@ int juga(int nivell)
 	srand((unsigned) time(NULL));
 
 	// Inicialitzaci� de la posici� de la granota
-	//posicioGranotaX = INICI_X + ((FI_X - INICI_X) / 2) - granota.getScaleX()/2;
-	//posicioGranotaY = INICI_Y_GRANOTA;
+	posicioGranotaX = INICI_X + ((FI_X - INICI_X) / 2) - granota.getScaleX()/2;
+	posicioGranotaY = INICI_Y_GRANOTA;
 
 	// Inicialitzaci� de la posici� del cotxe
 	posicioCotxeX = INICI_X;
@@ -153,7 +153,7 @@ int juga(int nivell)
 		{
 			estat.bExit=true;
 		}
-
+		//mouGranota(X) x=1->4 1=left 2=right 3=up 4=down
 		if (Keyboard_GetKeyTrg(KEYBOARD_LEFT))
 		{
 			// Si la posició de la granota és més gran que el límit esquerra + el desplaçament de cada moviment

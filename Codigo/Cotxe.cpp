@@ -31,8 +31,12 @@ Cotxe::~Cotxe()
  */
 Area Cotxe::getAreaOcupada()
 {
-	// TODO emplenar
-	return Area(); // TODO modificar
+	int x0 = m_posicioX;
+	int x1 = x0 + m_grafic.getScaleX() ;
+	int y0 = m_posicioY;
+	int y1 = y0 + m_grafic.getScaleY() ;
+	
+	return Area(x0 , x1 , y0 , y1);
 }
 
 /**
@@ -40,7 +44,7 @@ Area Cotxe::getAreaOcupada()
  */
 void Cotxe::dibuixa()
 {
-	// TODO emplenar
+	m_grafic.dibuixa(m_posicioX,m_posicioY);
 }
 
 /**
@@ -48,7 +52,7 @@ void Cotxe::dibuixa()
  */
 void Cotxe::mou()
 {
-	// TODO emplenar
+	m_posicioX = m_posicioX+(DESPLACAMENT_COTXE*m_velocitat);
 }
 
 /**
@@ -58,5 +62,5 @@ void Cotxe::mou()
  */
 void Cotxe::mouAIniciCarril(int iniciXCarril, int iniciYCarril)
 {
-	// TODO emplenar
+	m_grafic.dibuixa(iniciXCarril , iniciYCarril);
 }

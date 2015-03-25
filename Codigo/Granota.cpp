@@ -35,8 +35,12 @@ Granota::~Granota()
  */
 Area Granota::getAreaOcupada()
 {
-	// TODO emplenar
-	return Area(); // TODO modificar
+	int x0 = m_posicioX;
+	int x1 = x0 + m_grafic.getScaleX() ;
+	int y0 = m_posicioY;
+	int y1 = y0 + m_grafic.getScaleY() ;
+	
+	return Area(x0 , x1 , y0 , y1);
 }
 
 /**

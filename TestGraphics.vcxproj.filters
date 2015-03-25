@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Joc.cpp" />
+    <ClCompile Include="Principal.cpp" />
+    <ClCompile Include="lib\animaciones.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\debug.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\event.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Grafic.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\image_png.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\keyboard.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\mouse.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\sound.c">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\sprites.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\stb_vorbis.c">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\video.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Joc.h" />
+    <ClInclude Include="lib\animaciones.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\debug.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\event.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Grafic.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\image_png.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\keyboard.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\keyboard_sdl.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\libreria.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\mouse.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\sound.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\sprites.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stb_vorbis.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\video.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="lib">
+      <UniqueIdentifier>{de5d37b7-4909-4f4b-beaf-277da583a0e6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

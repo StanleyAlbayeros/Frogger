@@ -85,8 +85,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GestioResultats.cpp" />
-    <ClCompile Include="Joc.cpp" />
+    <ClCompile Include="Codigo\Area.cpp" />
+    <ClCompile Include="Codigo\Cova.cpp" />
+    <ClCompile Include="Codigo\GestioResultats.cpp" />
+    <ClCompile Include="Codigo\Granota.cpp" />
+    <ClCompile Include="Codigo\Joc.cpp" />
+    <ClCompile Include="Codigo\Menu.cpp" />
+    <ClCompile Include="Codigo\Pantalla.cpp" />
+    <ClCompile Include="Codigo\Principal.cpp" />
+    <ClCompile Include="Codigo\Vehicle.cpp" />
     <ClCompile Include="lib\animaciones.cpp" />
     <ClCompile Include="lib\debug.cpp" />
     <ClCompile Include="lib\event.cpp" />
@@ -98,12 +105,16 @@
     <ClCompile Include="lib\sprites.cpp" />
     <ClCompile Include="lib\stb_vorbis.c" />
     <ClCompile Include="lib\video.cpp" />
-    <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="Principal.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GestioResultats.h" />
-    <ClInclude Include="Joc.h" />
+    <ClInclude Include="Codigo\Area.h" />
+    <ClInclude Include="Codigo\Cova.h" />
+    <ClInclude Include="Codigo\GestioResultats.h" />
+    <ClInclude Include="Codigo\Granota.h" />
+    <ClInclude Include="Codigo\Joc.h" />
+    <ClInclude Include="Codigo\Menu.h" />
+    <ClInclude Include="Codigo\Pantalla.h" />
+    <ClInclude Include="Codigo\Vehicle.h" />
     <ClInclude Include="lib\animaciones.h" />
     <ClInclude Include="lib\debug.h" />
     <ClInclude Include="lib\event.h" />
@@ -117,7 +128,6 @@
     <ClInclude Include="lib\sprites.h" />
     <ClInclude Include="lib\stb_vorbis.h" />
     <ClInclude Include="lib\video.h" />
-    <ClInclude Include="Menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

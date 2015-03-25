@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Joc.cpp" />
-    <ClCompile Include="Principal.cpp" />
     <ClCompile Include="lib\animaciones.cpp">
       <Filter>lib</Filter>
     </ClCompile>
@@ -36,11 +34,17 @@
     <ClCompile Include="lib\video.cpp">
       <Filter>lib</Filter>
     </ClCompile>
-    <ClCompile Include="GestioResultats.cpp" />
-    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Codigo\Menu.cpp" />
+    <ClCompile Include="Codigo\Principal.cpp" />
+    <ClCompile Include="Codigo\GestioResultats.cpp" />
+    <ClCompile Include="Codigo\Joc.cpp" />
+    <ClCompile Include="Codigo\Area.cpp" />
+    <ClCompile Include="Codigo\Cova.cpp" />
+    <ClCompile Include="Codigo\Granota.cpp" />
+    <ClCompile Include="Codigo\Pantalla.cpp" />
+    <ClCompile Include="Codigo\Vehicle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Joc.h" />
     <ClInclude Include="lib\animaciones.h">
       <Filter>lib</Filter>
     </ClInclude>
@@ -80,8 +84,14 @@
     <ClInclude Include="lib\video.h">
       <Filter>lib</Filter>
     </ClInclude>
-    <ClInclude Include="GestioResultats.h" />
-    <ClInclude Include="Menu.h" />
+    <ClInclude Include="Codigo\Joc.h" />
+    <ClInclude Include="Codigo\Menu.h" />
+    <ClInclude Include="Codigo\GestioResultats.h" />
+    <ClInclude Include="Codigo\Granota.h" />
+    <ClInclude Include="Codigo\Pantalla.h" />
+    <ClInclude Include="Codigo\Vehicle.h" />
+    <ClInclude Include="Codigo\Area.h" />
+    <ClInclude Include="Codigo\Cova.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="lib">

@@ -94,30 +94,6 @@ bool Area::pertany(int x, int y)
 }
 
 /**
- * Comprova si una àrea donada està inclosa dins l'àrea.
- * @param area L'àrea donada que es vol comprovar.
- * @return true si l'àrea donada està inclosa, false si no.
- */
-bool Area::inclou(Area area)
-{
-	int areaminX = area.getMinX();
-	int areamaxX = area.getMaxX();
-	int areaminY = area.getMinY();
-	int areamaxY = area.getMaxY();
-	int inclou = false;
-
-	if ( Area.pertany(areaminX , areaminY) 
-		|| Area.pertany(areaminX , areamaxY) 
-		|| Area.pertany(areamaxX , areaminY) 
-		|| Area.pertany(areamaxX , areamaxY));
-	{
-		inclou = true;
-	}
-
-	return inclou;
-}
-
-/**
  * Comprova si l'àrea donada es solapa amb l'àrea.
  * Nota: dues àrees se solapen si la intersecció entre elles no és buida.
  * Assumpció: El cas en què dos rectangles formen una creu no cal que el tingueu en compte, no es donarà en aquest projecte.
@@ -126,19 +102,46 @@ bool Area::inclou(Area area)
  */
 bool Area::solapa(Area area)
 {
+	Area Area1 (m_minX,m_maxX,m_minY,m_maxY);
 	int areaminX = area.getMinX();
 	int areamaxX = area.getMaxX();
 	int areaminY = area.getMinY();
 	int areamaxY = area.getMaxY();
-	int solapa = false;
+	bool solapa = false;
 
-	if ( Area.pertany(areaminX , areaminY) 
-		&& Area.pertany(areaminX , areamaxY) 
-		&& Area.pertany(areamaxX , areaminY) 
-		&& Area.pertany(areamaxX , areamaxY));
+	if ( Area1.pertany(areaminX , areaminY) 
+		//|| Area1.pertany(areaminX , areamaxY) 
+		//|| Area1.pertany(areamaxX , areaminY) 
+		|| Area1.pertany(areamaxX , areamaxY))
+		{
+		solapa = true;
+		}
+
+	return solapa;
+}
+
+/**
+ * Comprova si una àrea donada està inclosa dins l'àrea.
+ * @param area L'àrea donada que es vol comprovar.
+ * @return true si l'àrea donada està inclosa, false si no.
+ */
+bool Area::inclou(Area area)
+{
+	bool inclou = false;
+	Area Area1 (m_minX,m_maxX,m_minY,m_maxY);
+	int areaminX = area.getMinX();
+	int areamaxX = area.getMaxX();
+	int areaminY = area.getMinY();
+	int areamaxY = area.getMaxY();
+
+
+	if ( Area1.pertany(areaminX , areaminY) 
+		&& Area1.pertany(areaminX , areamaxY) 
+		&& Area1.pertany(areamaxX , areaminY) 
+		&& Area1.pertany(areamaxX , areamaxY))
 	{
 		inclou = true;
 	}
 
-	return solapa;
+	return inclou;
 }

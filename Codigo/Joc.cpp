@@ -101,26 +101,27 @@ void mostraVides (int vides, Grafic granotaVida)
 int juga(int nivell)
 {
 	t_programStatus estat;
-	Pantalla();
+	
 	// Inicialitzem
 	InitGame (estat);
-	Granota granota;
+	Pantalla pantalla;
+	//Granota granota;
 	//Grafic granota;
-	Grafic fons;
-	Grafic cotxe;
+	//Grafic fons;
+	//Grafic cotxe;
 
 	//granota.crea("data/GraficsGranota/Granota_Amunt_1.png");
 
-	fons.crea("data/GraficsGranota/fons.png");
-	cotxe.crea("data/GraficsGranota/Cotxe_1.png");
+	//fons.crea("data/GraficsGranota/fons.png");
+	//cotxe.crea("data/GraficsGranota/Cotxe_1.png");
 
-	int posicioCotxeX, posicioCotxeY; // Posicio del cotxe per coordenades (X,Y)
-	//int posicioGranotaX, posicioGranotaY;   // Posicio de la granota per coordenades (X,Y)
-	//int DESPLACAMENT_GRANOTA = granota.getScaleY()/2; //Desplaçament de la granota
-	//int DESPLACAMENT_COTXE= 4; //Desplaçament del cotxe
+	//int posicioCotxeX, posicioCotxeY; // Posicio del cotxe per coordenades (X,Y)
+	////int posicioGranotaX, posicioGranotaY;   // Posicio de la granota per coordenades (X,Y)
+	////int DESPLACAMENT_GRANOTA = granota.getScaleY()/2; //Desplaçament de la granota
+	////int DESPLACAMENT_COTXE= 4; //Desplaçament del cotxe
 	char tecla = 0; // Variable char on desar la tecla pulsada
-	int velocitatCotxe= nivell*DESPLACAMENT_COTXE;
-	int contFreCotxe = velocitatCotxe / nivell*2; // Comptador per a frenar l'avanç del cotxe
+	//int velocitatCotxe= nivell*DESPLACAMENT_COTXE;
+	//int contFreCotxe = velocitatCotxe / nivell*2; // Comptador per a frenar l'avanç del cotxe
 	int haMortLaGranota = 0; // Variable boleana per saber si la granota esta morta
 	int punts = 0; // Punts acumulats durant la partida
 	int vides = 3; // Vides que li queden a la granota
@@ -134,13 +135,13 @@ int juga(int nivell)
 	// Inizialitza llavor per a la funci� rand()
 	srand((unsigned) time(NULL));
 
-	// Inicialitzaci� de la posici� de la granota
-	posicioGranotaX = INICI_X + ((FI_X - INICI_X) / 2) - granota.getScaleX()/2;
-	posicioGranotaY = INICI_Y_GRANOTA;
+	//// Inicialitzaci� de la posici� de la granota
+	//posicioGranotaX = INICI_X + ((FI_X - INICI_X) / 2) - granota.getScaleX()/2;
+	//posicioGranotaY = INICI_Y_GRANOTA;
 
-	// Inicialitzaci� de la posici� del cotxe
-	posicioCotxeX = INICI_X;
-	posicioCotxeY = triaCarril();
+	//// Inicialitzaci� de la posici� del cotxe
+	//posicioCotxeX = INICI_X;
+	//posicioCotxeY = triaCarril();
 
 
 	do
@@ -156,94 +157,53 @@ int juga(int nivell)
 		//mouGranota(X) x=1->4 1=left 2=right 3=up 4=down
 		if (Keyboard_GetKeyTrg(KEYBOARD_LEFT))
 		{
-			// Si la posició de la granota és més gran que el límit esquerra + el desplaçament de cada moviment
-			if (posicioGranotaX > (INICI_X + DESPLACAMENT_GRANOTA))
-			{
-				// Movem la granota cap a l'esquerra
-				posicioGranotaX -= DESPLACAMENT_GRANOTA;
-				
-			}
+			pantalla.mouGranota(1);
+			
 		}
 		if (Keyboard_GetKeyTrg(KEYBOARD_RIGHT))
 		{
-
-			// Si la posició de la granota + el tamany en horizontal de la granota és més petita que el límit dret - el desplaçament de cada moviment
-			if ((posicioGranotaX+granota.getScaleX())<(FI_X-DESPLACAMENT_GRANOTA))
-			{
-				// Movem la granota cap a la dreta
-				posicioGranotaX += DESPLACAMENT_GRANOTA;
-			}
+			pantalla.mouGranota(2);
 		}
 
 		if (Keyboard_GetKeyTrg(KEYBOARD_UP))
 		{
-
-			// Si la posició de la granota + el tamany en horizontal de la granota és més petita que el límit dret - el desplaçament de cada moviment
-			if ((posicioGranotaY+granota.getScaleY())>(INICI_Y-DESPLACAMENT_GRANOTA))
-			{
-				// Movem la granota cap a la dreta
-				posicioGranotaY -= DESPLACAMENT_GRANOTA;
-			}
+			pantalla.mouGranota(3);
 		}
 
 		if (Keyboard_GetKeyTrg(KEYBOARD_DOWN))
 		{
-
-			// Si la posició de la granota + el tamany en horizontal de la granota és més petita que el límit dret - el desplaçament de cada moviment
-			if ((posicioGranotaY+granota.getScaleY())<(FI_Y+DESPLACAMENT_GRANOTA))
-			{
-				// Movem la granota cap a la dreta
-				posicioGranotaY += DESPLACAMENT_GRANOTA;
-			}
+			pantalla.mouGranota(4);
 		}
 
 		// Secuencia de control del coche
-		if (contFreCotxe==0)
-		{
-			mouCotxe(posicioCotxeX, posicioCotxeY);
-			contFreCotxe = velocitatCotxe / nivell;
-		}
-		contFreCotxe--;
+		pantalla.mouCotxe();
 
 
-		if ((posicioGranotaX<posicioCotxeX+cotxe.getScaleX())&&(posicioGranotaX+granota.getScaleX()>posicioCotxeX)
-			&&(posicioGranotaY<posicioCotxeY+cotxe.getScaleY())&&(posicioGranotaY+granota.getScaleY()>posicioCotxeY))
+		if (pantalla.haMortLaGranota())
 		{
 			vides= vides-1;
-			
-			if (vides>0)
-			{
-				posicioGranotaX = INICI_X + ((FI_X - INICI_X) / 2) - granota.getScaleX()/2;
-				posicioGranotaY = INICI_Y_GRANOTA;
-			}
+			pantalla.inicia(nivell-1);
 		}
 
-		if (posicioGranotaY+granota.getScaleY()<INICI_Y-7)
+		if (pantalla.esGranotaDinsCova())
 		{
 			punts += 100 * nivell;
 			nivell+=1;
 
 			if (nivell<4)
 			{
-				posicioGranotaX = INICI_X + ((FI_X - INICI_X) / 2) - granota.getScaleX()/2;
-				posicioGranotaY = INICI_Y_GRANOTA;
+				pantalla.inicia(nivell+1);
 			}
 		}
 
 
 		// Dibuixa els gràfics
-		fons.dibuixa(0,0);
-		granota.dibuixa(posicioGranotaX, posicioGranotaY);
-		cotxe.dibuixa(posicioCotxeX, posicioCotxeY);
-		mostraVides (vides, granota);
+		pantalla.dibuixa();
 
 		VideoUpdate(estat); // Actualitza la pantalla
 
 	} while ((nivell < 4) && (vides > 0) && (!estat.bExit));
 
-	granota.destrueix();
-	fons.destrueix();
-	cotxe.destrueix();
 
 	Video_Release(); // Allibera els recursos
 

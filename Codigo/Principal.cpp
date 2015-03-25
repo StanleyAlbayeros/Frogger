@@ -54,4 +54,5 @@ int main()
 				break;
 		}
 	} while (opcio != OPCIO_SORTIR);
+	return 0;
 }

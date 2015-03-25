@@ -40,8 +40,14 @@ Pantalla::~Pantalla()
  */
 void Pantalla::inicia(int nivell)
 {
-	
-	//TODO
+
+	Granota m_granota;
+	Grafic m_graficFons;
+	Grafic m_graficCova;
+	Grafic m_graficCotxe;
+	Cotxe m_cotxe=Cotxe(m_graficCotxe, nivell);
+	Grafic m_graficGranotaAmunt;
+	m_cotxe.mouAIniciCarril(INICI_X,m_iniciCarrilsY);
 }
 
 /**
@@ -60,8 +66,14 @@ int Pantalla::triaCarril()
  */
 bool Pantalla::esGranotaDinsCova()
 {
-	// TODO emplenar
-	return true; // TODO modificar
+	bool dentro=false;
+
+	if (m_cova.esDins(m_granota.getAreaOcupada()))
+	{
+		dentro=true;
+	}
+
+	return dentro; 
 }
 
 /**
@@ -71,8 +83,15 @@ bool Pantalla::esGranotaDinsCova()
  */
 bool Pantalla::espaiPermes(Area area)
 {
-	// TODO emplenar
-	return true; // TODO modificar
+	bool permitido = false;
+
+	if (m_areaTotal.inclou(area))
+	{
+		permitido = true;
+	}
+
+	return permitido;
+
 }
 
 /**
@@ -80,7 +99,11 @@ bool Pantalla::espaiPermes(Area area)
  */
 void Pantalla::dibuixa()
 {
-	// TODO emplenar
+	m_cova.dibuixa();
+	m_granota.dibuixa();
+	m_cotxe.dibuixa();
+	m_graficFons.dibuixa(0,0);
+
 }
 
 /**
@@ -88,7 +111,14 @@ void Pantalla::dibuixa()
  */
 void Pantalla::mouCotxe()
 {
-	// TODO emplenar
+	if (espaiPermes(m_cotxe.getAreaOcupada()))
+	{
+		m_cotxe.mou();
+	}
+	else 
+	{
+		m_cotxe.mouAIniciCarril(INICI_X,m_iniciCarrilsY);
+	}
 }
 
 /**
@@ -97,8 +127,15 @@ void Pantalla::mouCotxe()
  */
 bool Pantalla::haMortLaGranota()
 {
-	// TODO emplenar
-	return true; // TODO modificar
+	bool mort = false;
+
+	if ((m_cotxe.getAreaOcupada().solapa(m_granota.getAreaOcupada()))
+		|| (m_granota.getAreaOcupada().solapa(m_cotxe.getAreaOcupada())))
+	{
+		mort = true;
+	}
+
+	return mort;
 }
 
 /**
@@ -107,23 +144,28 @@ bool Pantalla::haMortLaGranota()
  */
 void Pantalla::mouGranota(int direccio)
 {
-	switch (direccio){
+	if (espaiPermes(m_granota.getAreaOcupada()))
+	{
+		switch (direccio){
 
-		case 1:
-				Granota.mouEsquerra;
-		break;
+			case 1:
+					m_granota.mouEsquerra();
+			break;
 			
-		case 2:
-				Granota.mouDreta;
-		break;
+			case 2:
+					m_granota.mouDreta();
+			break;
 
-		case 3:
-				Granota.mouAmunt;
-		break;
+			case 3:
+					m_granota.mouAmunt();
+			break;
 
-		case 4:
-				Granota.mouAvall;
-		break;
+			case 4:
+					m_granota.mouAvall();
+			break;
+			}
 
 	}
+
+
 }

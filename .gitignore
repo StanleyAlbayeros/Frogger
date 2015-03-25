@@ -35,5 +35,6 @@ Codigo/lib/
 *.vcxproj
 *.suo
 *.ipch
+*.tlog
 Debug/
 Program/

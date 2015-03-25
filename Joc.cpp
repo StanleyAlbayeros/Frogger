@@ -111,7 +111,7 @@ int juga(int nivell)
 
 	int posicioCotxeX, posicioCotxeY; // Posicio del cotxe per coordenades (X,Y)
 	int posicioGranotaX, posicioGranotaY;   // Posicio de la granota per coordenades (X,Y)
-	int DESPLACAMENT_GRANOTA = granota.getScaleY(); //Desplaçament de la granota
+	int DESPLACAMENT_GRANOTA = granota.getScaleY()/2; //Desplaçament de la granota
 	int DESPLACAMENT_COTXE= 4; //Desplaçament del cotxe
 	char tecla = 0; // Variable char on desar la tecla pulsada
 	int velocitatCotxe= nivell*DESPLACAMENT_COTXE;

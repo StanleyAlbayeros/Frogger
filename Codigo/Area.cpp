@@ -109,10 +109,10 @@ bool Area::solapa(Area area)
 	int areamaxY = area.getMaxY();
 	bool solapa = false;
 
-	if ( Area1.pertany(areaminX , areaminY) 
-		//|| Area1.pertany(areaminX , areamaxY) 
-		//|| Area1.pertany(areamaxX , areaminY) 
-		|| Area1.pertany(areamaxX , areamaxY))
+	if ( pertany(areaminX , areaminY) 
+		|| pertany(areaminX , areamaxY) 
+		|| pertany(areamaxX , areaminY) 
+		|| pertany(areamaxX , areamaxY))
 		{
 		solapa = true;
 		}
@@ -135,10 +135,8 @@ bool Area::inclou(Area area)
 	int areamaxY = area.getMaxY();
 
 
-	if ( Area1.pertany(areaminX , areaminY) 
-		&& Area1.pertany(areaminX , areamaxY) 
-		&& Area1.pertany(areamaxX , areaminY) 
-		&& Area1.pertany(areamaxX , areamaxY))
+	if ( pertany(areaminX , areaminY) 
+		&& pertany(areamaxX , areamaxY))
 	{
 		inclou = true;
 	}

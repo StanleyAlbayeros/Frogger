@@ -52,7 +52,7 @@ void Cotxe::dibuixa()
  */
 void Cotxe::mou()
 {
-	m_posicioX = m_posicioX+(DESPLACAMENT_COTXE*m_velocitat);
+	m_posicioX = m_posicioX+m_velocitat;
 }
 
 /**
@@ -62,5 +62,7 @@ void Cotxe::mou()
  */
 void Cotxe::mouAIniciCarril(int iniciXCarril, int iniciYCarril)
 {
-	m_grafic.dibuixa(iniciXCarril , iniciYCarril);
+	m_posicioX= iniciXCarril;
+	m_posicioY= iniciYCarril;
+	
 }

@@ -105,44 +105,15 @@ int juga(int nivell)
 	// Inicialitzem
 	InitGame (estat);
 	Pantalla pantalla;
-	//Granota granota;
-	//Grafic granota;
-	//Grafic fons;
-	//Grafic cotxe;
-
-	//granota.crea("data/GraficsGranota/Granota_Amunt_1.png");
-
-	//fons.crea("data/GraficsGranota/fons.png");
-	//cotxe.crea("data/GraficsGranota/Cotxe_1.png");
-
-	//int posicioCotxeX, posicioCotxeY; // Posicio del cotxe per coordenades (X,Y)
-	////int posicioGranotaX, posicioGranotaY;   // Posicio de la granota per coordenades (X,Y)
-	////int DESPLACAMENT_GRANOTA = granota.getScaleY()/2; //Desplaçament de la granota
-	////int DESPLACAMENT_COTXE= 4; //Desplaçament del cotxe
 	char tecla = 0; // Variable char on desar la tecla pulsada
-	//int velocitatCotxe= nivell*DESPLACAMENT_COTXE;
-	//int contFreCotxe = velocitatCotxe / nivell*2; // Comptador per a frenar l'avanç del cotxe
 	int haMortLaGranota = 0; // Variable boleana per saber si la granota esta morta
 	int punts = 0; // Punts acumulats durant la partida
 	int vides = 3; // Vides que li queden a la granota
-
-	//Pantalla();
-
-
-	//Mostrem la finestra
+	pantalla.inicia(3);
 	Video_ShowWindow();
-
+	pantalla.dibuixa();
 	// Inizialitza llavor per a la funci� rand()
 	srand((unsigned) time(NULL));
-
-	//// Inicialitzaci� de la posici� de la granota
-	//posicioGranotaX = INICI_X + ((FI_X - INICI_X) / 2) - granota.getScaleX()/2;
-	//posicioGranotaY = INICI_Y_GRANOTA;
-
-	//// Inicialitzaci� de la posici� del cotxe
-	//posicioCotxeX = INICI_X;
-	//posicioCotxeY = triaCarril();
-
 
 	do
 	{

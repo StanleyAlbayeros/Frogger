@@ -41,12 +41,8 @@ Pantalla::~Pantalla()
 void Pantalla::inicia(int nivell)
 {
 
-	Granota m_granota;
-	Grafic m_graficFons;
-	Grafic m_graficCova;
-	Grafic m_graficCotxe;
-	Cotxe m_cotxe=Cotxe(m_graficCotxe, nivell);
-	Grafic m_graficGranotaAmunt;
+	m_cotxe=Cotxe(m_graficCotxe, nivell);
+	
 	m_cotxe.mouAIniciCarril(INICI_X,m_iniciCarrilsY);
 }
 
@@ -99,11 +95,11 @@ bool Pantalla::espaiPermes(Area area)
  */
 void Pantalla::dibuixa()
 {
+	m_graficFons.dibuixa(0,0);
 	m_cova.dibuixa();
 	m_granota.dibuixa();
 	m_cotxe.dibuixa();
-	m_graficFons.dibuixa(0,0);
-
+	
 }
 
 /**

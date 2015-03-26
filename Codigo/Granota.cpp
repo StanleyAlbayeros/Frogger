@@ -56,10 +56,8 @@ void Granota::dibuixa()
  */
 void Granota::mouEsquerra()
 {
-	if(m_posicioX>(INICI_X+DESPLACAMENT_GRANOTA))
-	{	
+	
 		m_posicioX -= DESPLACAMENT_GRANOTA;
-	}
 }
 
 /**

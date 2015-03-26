@@ -153,14 +153,13 @@ int juga(int nivell)
 		if (pantalla.haMortLaGranota())
 		{
 			vides= vides-1;
-			pantalla.inicia(3);
+			pantalla.inicia(nivell);
 		}
 
 		if (pantalla.esGranotaDinsCova())
 		{
 			punts += 100 * nivell;
 			nivell+=1;
-			estat.bExit=true;
 			if (nivell<4)
 			{
 				pantalla.inicia(nivell+1);

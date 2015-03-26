@@ -147,7 +147,7 @@ int juga(int nivell)
 		}
 
 		// Secuencia de control del coche
-		pantalla.mouCotxe();
+		pantalla.mouCotxes();
 
 
 		if (pantalla.haMortLaGranota())

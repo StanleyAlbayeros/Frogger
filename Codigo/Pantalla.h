@@ -27,20 +27,23 @@ public:
 	void dibuixa();
 	void mouGranota(int direccio);
 	bool esGranotaDinsCova();
-	void mouCotxe();
+	void mouCotxes(); //JUGUETEANDO CON MAS COCHES!!!
 	bool haMortLaGranota();
 private:
 	Grafic m_graficFons;
 	Grafic m_graficCova;
 	Grafic m_graficGranotaAmunt;
-	Grafic m_graficCotxe;
+	Grafic m_graficCotxe1;
+	Grafic m_graficCotxe2;
 	Area m_areaTotal;
 	Cova m_cova;
 	Granota m_granota;
-	Cotxe m_cotxe;
+	Cotxe m_cotxe1;
+	Cotxe m_cotxe2;
 	int m_iniciCarrilsY;
-	int m_nCarrils;
-	int triaCarril();
+	int m_nCarrils1;
+	int m_nCarrils2;
+	int triaCarril(int numcotxe);
 	bool espaiPermes(Area area);
 };
 

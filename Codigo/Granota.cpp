@@ -56,8 +56,7 @@ void Granota::dibuixa()
  */
 void Granota::mouEsquerra()
 {
-	
-		m_posicioX -= DESPLACAMENT_GRANOTA;
+	m_posicioX -= DESPLACAMENT_GRANOTA;
 }
 
 /**
@@ -65,10 +64,7 @@ void Granota::mouEsquerra()
  */
 void Granota::mouDreta()
 {
-	if ((m_posicioX+m_grafic.getScaleX())<(FI_X-DESPLACAMENT_GRANOTA))
-	{
-		m_posicioX += DESPLACAMENT_GRANOTA;
-	}
+	m_posicioX += DESPLACAMENT_GRANOTA;
 }
 
 /**
@@ -76,11 +72,7 @@ void Granota::mouDreta()
  */
 void Granota::mouAmunt()
 {
-	if((m_posicioY+m_grafic.getScaleY())>(INICI_Y-DESPLACAMENT_GRANOTA))
-	{
-		m_posicioY -= DESPLACAMENT_GRANOTA;
-	}
-	
+	m_posicioY -= DESPLACAMENT_GRANOTA;
 }
 
 /**
@@ -88,10 +80,7 @@ void Granota::mouAmunt()
  */
 void Granota::mouAvall()
 {
-	if((m_posicioY+m_grafic.getScaleY())<(FI_Y-DESPLACAMENT_GRANOTA))
-	{
-		m_posicioY += DESPLACAMENT_GRANOTA;
-	}
+	m_posicioY += DESPLACAMENT_GRANOTA;
 }
 
 /**
@@ -99,6 +88,6 @@ void Granota::mouAvall()
  */
 void Granota::mouAPosicioInicial()
 {
-	m_posicioX = INICI_X + ((FI_X - INICI_X) / 2) - m_grafic.getScaleX()/2;
-	m_posicioY = INICI_Y_GRANOTA;
+	m_posicioX = (FI_X - INICI_X - m_grafic.getScaleX())/2;
+	m_posicioY = FI_Y - m_grafic.getScaleY();
 }

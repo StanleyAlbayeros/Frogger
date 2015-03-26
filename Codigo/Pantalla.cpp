@@ -42,8 +42,9 @@ void Pantalla::inicia(int nivell)
 {
 
 	m_cotxe=Cotxe(m_graficCotxe, nivell);
-	
 	m_cotxe.mouAIniciCarril(INICI_X,m_iniciCarrilsY);
+	m_granota.mouAPosicioInicial();
+
 }
 
 /**
@@ -97,9 +98,8 @@ void Pantalla::dibuixa()
 {
 	m_graficFons.dibuixa(0,0);
 	m_cova.dibuixa();
-	m_granota.dibuixa();
 	m_cotxe.dibuixa();
-	
+	m_granota.dibuixa();
 }
 
 /**
@@ -140,8 +140,8 @@ bool Pantalla::haMortLaGranota()
  */
 void Pantalla::mouGranota(int direccio)
 {
-	if (espaiPermes(m_granota.getAreaOcupada()))
-	{
+//	if (espaiPermes(m_granota.getAreaOcupada()))
+//	{
 		switch (direccio){
 
 			case 1:
@@ -159,7 +159,7 @@ void Pantalla::mouGranota(int direccio)
 			case 4:
 					m_granota.mouAvall();
 			break;
-			}
+//			}
 
 	}
 

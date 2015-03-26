@@ -109,9 +109,9 @@ int juga(int nivell)
 	int haMortLaGranota = 0; // Variable boleana per saber si la granota esta morta
 	int punts = 0; // Punts acumulats durant la partida
 	int vides = 3; // Vides que li queden a la granota
-	pantalla.inicia(3);
+	pantalla.inicia(vides);
 	Video_ShowWindow();
-	pantalla.dibuixa();
+	//pantalla.dibuixa();
 	// Inizialitza llavor per a la funci� rand()
 	srand((unsigned) time(NULL));
 
@@ -153,7 +153,7 @@ int juga(int nivell)
 		if (pantalla.haMortLaGranota())
 		{
 			vides= vides-1;
-			pantalla.inicia(nivell-1);
+			pantalla.inicia(3);
 		}
 
 		if (pantalla.esGranotaDinsCova())

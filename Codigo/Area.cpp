@@ -102,7 +102,7 @@ bool Area::pertany(int x, int y)
  */
 bool Area::solapa(Area area)
 {
-	Area Area1 (m_minX,m_maxX,m_minY,m_maxY);
+	//Area Area1 (m_minX,m_maxX,m_minY,m_maxY);
 	int areaminX = area.getMinX();
 	int areamaxX = area.getMaxX();
 	int areaminY = area.getMinY();
@@ -128,7 +128,7 @@ bool Area::solapa(Area area)
 bool Area::inclou(Area area)
 {
 	bool inclou = false;
-	Area Area1 (m_minX,m_maxX,m_minY,m_maxY);
+	//Area Area1 (m_minX,m_maxX,m_minY,m_maxY);
 	int areaminX = area.getMinX();
 	int areamaxX = area.getMaxX();
 	int areaminY = area.getMinY();

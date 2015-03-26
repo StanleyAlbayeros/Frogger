@@ -160,7 +160,7 @@ int juga(int nivell)
 		{
 			punts += 100 * nivell;
 			nivell+=1;
-
+			estat.bExit=true;
 			if (nivell<4)
 			{
 				pantalla.inicia(nivell+1);

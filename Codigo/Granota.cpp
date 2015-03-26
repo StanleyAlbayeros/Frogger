@@ -56,7 +56,15 @@ void Granota::dibuixa()
  */
 void Granota::mouEsquerra()
 {
+	int m_tempX=m_posicioX-DESPLACAMENT_GRANOTA; 
+	// creo una variable adicional que evita
+	// que la rana se salga hacia el lado, ya que la funcion
+	// espaiPermes no lo evita, simplemente prohibe que se mueva
+	// una vez fuera del espaiPermes
+	if (m_tempX>=INICI_X)
+	{
 	m_posicioX -= DESPLACAMENT_GRANOTA;
+	}
 }
 
 /**
@@ -64,15 +72,31 @@ void Granota::mouEsquerra()
  */
 void Granota::mouDreta()
 {
+	int m_tempX=m_posicioX+DESPLACAMENT_GRANOTA; 
+	// creo una variable adicional que evita
+	// que la rana se salga hacia el lado, ya que la funcion
+	// espaiPermes no lo evita, simplemente prohibe que se mueva
+	// una vez fuera del espaiPermes
+	if (m_tempX<=FI_X)
+	{
 	m_posicioX += DESPLACAMENT_GRANOTA;
+	}
 }
 
 /**
  * Mou la granota cap amunt.
  */
 void Granota::mouAmunt()
-{
-	m_posicioY -= DESPLACAMENT_GRANOTA;
+{	
+	int m_tempY=m_posicioY-DESPLACAMENT_GRANOTA; 
+	// creo una variable adicional que evita
+	// que la rana se salga hacia el lado, ya que la funcion
+	// espaiPermes no lo evita, simplemente prohibe que se mueva
+	// una vez fuera del espaiPermes
+	if (m_tempY>=INICI_Y)
+	{
+		m_posicioY -= DESPLACAMENT_GRANOTA;
+	}
 }
 
 /**
@@ -80,7 +104,15 @@ void Granota::mouAmunt()
  */
 void Granota::mouAvall()
 {
-	m_posicioY += DESPLACAMENT_GRANOTA;
+	int m_tempY=m_posicioY+m_grafic.getScaleY()+DESPLACAMENT_GRANOTA; 
+	// creo una variable adicional que evita
+	// que la rana se salga hacia el lado, ya que la funcion
+	// espaiPermes no lo evita, simplemente prohibe que se mueva
+	// una vez fuera del espaiPermes
+	if (m_tempY<=FI_Y)
+	{
+		m_posicioY += DESPLACAMENT_GRANOTA;
+	}
 }
 
 /**
@@ -89,5 +121,5 @@ void Granota::mouAvall()
 void Granota::mouAPosicioInicial()
 {
 	m_posicioX = (FI_X - INICI_X - m_grafic.getScaleX())/2;
-	m_posicioY = FI_Y - m_grafic.getScaleY();
+	m_posicioY = FI_Y - DESPLACAMENT_GRANOTA - 8 ;
 }

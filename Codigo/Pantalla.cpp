@@ -14,7 +14,7 @@ Pantalla::Pantalla()
 	m_graficCotxe.crea("data/GraficsGranota/Cotxe_1.png");
 	m_graficGranotaAmunt.crea("data/GraficsGranota/Granota_Amunt_1.png");
 	// Inicialitzem l'area total de la pantalla, així com l'espai pels carrils, el número de carrils i instanciem els objectes granota i cova.
-	m_areaTotal = Area(INICI_X, FI_X, INICI_Y, FI_Y);
+	m_areaTotal = Area(INICI_X-1, FI_X+1, INICI_Y-1, FI_Y+1);
 	m_iniciCarrilsY = INICI_Y + m_graficCova.getScaleY();
 	m_nCarrils = (((FI_Y - m_graficGranotaAmunt.getScaleY()) - m_iniciCarrilsY) / m_graficCotxe.getScaleY()) -1 ;
 	m_granota = Granota(m_graficGranotaAmunt, (FI_X - INICI_X - m_graficGranotaAmunt.getScaleX())/2, FI_Y - m_graficGranotaAmunt.getScaleY());
@@ -42,7 +42,7 @@ void Pantalla::inicia(int nivell)
 {
 
 	m_cotxe=Cotxe(m_graficCotxe, nivell);
-	m_cotxe.mouAIniciCarril(INICI_X,m_iniciCarrilsY);
+	m_cotxe.mouAIniciCarril(INICI_X,triaCarril());
 	m_granota.mouAPosicioInicial();
 
 }
@@ -53,7 +53,7 @@ void Pantalla::inicia(int nivell)
  */
 int Pantalla::triaCarril()
 {
-	return (INICI_Y+3) + (rand()% ((FI_Y-35)-INICI_Y));
+	return (m_iniciCarrilsY) + ( (m_graficCotxe.getScaleY()-1) * (rand()%m_nCarrils));
 }
 
 /**
@@ -113,7 +113,7 @@ void Pantalla::mouCotxe()
 	}
 	else 
 	{
-		m_cotxe.mouAIniciCarril(INICI_X,m_iniciCarrilsY);
+		m_cotxe.mouAIniciCarril(INICI_X,triaCarril());
 	}
 }
 
@@ -140,8 +140,8 @@ bool Pantalla::haMortLaGranota()
  */
 void Pantalla::mouGranota(int direccio)
 {
-//	if (espaiPermes(m_granota.getAreaOcupada()))
-//	{
+	if (espaiPermes(m_granota.getAreaOcupada()))
+	{
 		switch (direccio){
 
 			case 1:
@@ -159,7 +159,7 @@ void Pantalla::mouGranota(int direccio)
 			case 4:
 					m_granota.mouAvall();
 			break;
-//			}
+			}
 
 	}
 

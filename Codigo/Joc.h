@@ -18,7 +18,7 @@
 // Fi del taulell respecte la cantonada superior esquerre
 //const int FI_X = 600; //TODO els cotxes arriben fins aquí
 //const int FI_Y = 390;
-
+#define THEEND 16
 //========================================================================
 // Desplaçament inicial de la granota respecte al final del taulell
 const int INICI_Y_GRANOTA = FI_Y + 5;

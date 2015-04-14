@@ -112,6 +112,8 @@ int juga(int nivell)
 	int vides = 3; // Vides que li queden a la granota
 	int count=10;
 	int dir=0;
+	int gameover= THEEND;
+	bool end = false;
 	pantalla.inicia(vides);
 	Grafic granotaVida;
 	granotaVida.crea("data/GraficsGranota/Granota_Amunt_1.png");
@@ -131,31 +133,31 @@ int juga(int nivell)
 		{
 			estat.bExit=true;
 		}
-		
-		if (Keyboard_GetKeyTrg(KEYBOARD_LEFT))
-		{
-			dir = 1;
-			pantalla.mouGranota(dir);
+		//direcciones
+			if (Keyboard_GetKeyTrg(KEYBOARD_LEFT))
+			{
+				dir = 1;
+				pantalla.mouGranota(dir);
 			
-		}
-		if (Keyboard_GetKeyTrg(KEYBOARD_RIGHT))
-		{
-			dir= 2;
-			pantalla.mouGranota(dir);
-		}
+			}
+			if (Keyboard_GetKeyTrg(KEYBOARD_RIGHT))
+			{
+				dir= 2;
+				pantalla.mouGranota(dir);
+			}
 
-		if (Keyboard_GetKeyTrg(KEYBOARD_UP))
-		{
-			dir=3;
-			pantalla.mouGranota(dir);
-		}
+			if (Keyboard_GetKeyTrg(KEYBOARD_UP))
+			{
+				dir=3;
+				pantalla.mouGranota(dir);
+			}
 
-		if (Keyboard_GetKeyTrg(KEYBOARD_DOWN))
-		{
-			dir=4;
-			pantalla.mouGranota(dir);
-		}
-
+			if (Keyboard_GetKeyTrg(KEYBOARD_DOWN))
+			{
+				dir=4;
+				pantalla.mouGranota(dir);
+			}
+		
 		// Secuencia de control del coche
 		pantalla.mouCotxes();
 
@@ -180,17 +182,39 @@ int juga(int nivell)
 		// Dibuixa els gràfics
 		count--;
 
+		// Contador que controla alternar las graficas de Granota
+
+		
 		pantalla.dibuixa(dir, count);
-		if (count == 0){
+		
+		if (count ==0)
+			{
+			//dir = 0;
 			count =10;
-			dir = 0;
-		}
+			}
+		
+		
 
 		mostraVides(vides, granotaVida);
+
+		if (vides == 0)
+		{
+			int iter = 4;
+			do {
+				//ProcessEvents (estat);
+				pantalla.GameOver(gameover);
+				gameover--;
+				if (gameover == 0){ gameover = THEEND ; iter--; }
+				VideoUpdate(estat); // Actualitza la pantalla
+				
+				} while (iter!=0);
+		}
+
 		VideoUpdate(estat); // Actualitza la pantalla
 
-	} while ((nivell < 4) && (vides > 0) && (!estat.bExit));
+	} while ((nivell < 4) && (vides!=0) && (!estat.bExit));
 
+	
 
 	Video_Release(); // Allibera els recursos
 

@@ -29,6 +29,8 @@ public:
 	bool esGranotaDinsCova();
 	void mouCotxes(); //JUGUETEANDO CON MAS COCHES!!!
 	bool haMortLaGranota();
+	void GameOver(int nopls);
+
 private:
 	Grafic m_graficFons;
 	Grafic m_graficCova;
@@ -48,6 +50,12 @@ private:
 	Grafic m_graficCotxe3;
 	Grafic m_graficCotxe4;
 	Grafic m_graficCotxe5;
+
+	Grafic m_GameOver1;
+	Grafic m_GameOver2;
+	Grafic m_GameOver3;
+	Grafic m_GameOver4;
+	Grafic m_GameOver5;
 
 	Area m_areaTotal;
 	Cova m_cova;

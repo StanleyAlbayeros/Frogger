@@ -11,24 +11,33 @@ Pantalla::Pantalla()
 	// Carreguem els components gràfics a fer servir.
 	m_graficFons.crea("data/GraficsGranota/Fons.png");
 	m_graficCova.crea("data/GraficsGranota/CovaNo.png");
+	
 	//Cotxes
 	m_graficCotxe1.crea("data/GraficsGranota/Tractor.png");
 	m_graficCotxe2.crea("data/GraficsGranota/Camio.png");
 	m_graficCotxe3.crea("data/GraficsGranota/Cotxe_1.png");
 	m_graficCotxe4.crea("data/GraficsGranota/Cotxe_2.png");
 	m_graficCotxe5.crea("data/GraficsGranota/Cotxe_3.png");
+	
 	//Granota en repos
 	m_graficGranotaAmunt.crea("data/GraficsGranota/Granota_Amunt_1.png");
 	m_graficGranotaAvall.crea("data/GraficsGranota/Granota_Avall_1.png");
 	m_graficGranotaEsquerra.crea("data/GraficsGranota/Granota_Esquerra_1.png");
 	m_graficGranotaDreta.crea("data/GraficsGranota/Granota_Dreta_1.png");
+	
 	//granota en moviment
 	m_graficGranotaAmunt2.crea("data/GraficsGranota/Granota_Amunt_2.png");
 	m_graficGranotaAvall2.crea("data/GraficsGranota/Granota_Avall_2.png");
 	m_graficGranotaEsquerra2.crea("data/GraficsGranota/Granota_Esquerra_2.png");
 	m_graficGranotaDreta2.crea("data/GraficsGranota/Granota_Dreta_2.png");
 	
-	
+	//GameOver
+	m_GameOver1.crea("data/GraficsGranota/GameOver1.png");
+	m_GameOver2.crea("data/GraficsGranota/GameOver2.png");
+	m_GameOver3.crea("data/GraficsGranota/GameOver3.png");
+	m_GameOver4.crea("data/GraficsGranota/GameOver4.png");
+	m_GameOver5.crea("data/GraficsGranota/GameOver5.png");
+		
 	// Inicialitzem l'area total de la pantalla, així com l'espai pels carrils, el número de carrils i instanciem els objectes granota i cova.
 	m_areaTotal = Area(INICI_X-1, FI_X+1, INICI_Y-1, FI_Y+1);
 	m_iniciCarrilsY = INICI_Y + m_graficCova.getScaleY();
@@ -95,17 +104,6 @@ int Pantalla::triaCarril(int numcotxe)
 {
 	int result = ((m_iniciCarrilsY) + (m_graficGranotaAmunt.getScaleY()*((numcotxe-1)*1.35)));
 	return result;
-/*
-	if(numcotxe==1)
-	{
- 		return (m_iniciCarrilsY) + (m_graficGranotaAmunt.getScaleY());
-	}
-	if(numcotxe==2)
-	{
-		return ((m_iniciCarrilsY) + (m_graficGranotaAmunt.getScaleY()));
-	}
-	*/
-
 }
 
 /**
@@ -292,6 +290,39 @@ void Pantalla::mouGranota(int direccio)
 			}
 
 	}
+
+
+}
+
+void Pantalla::GameOver(int nopls)
+{
+	int m_uSuck=nopls;
+	if (m_uSuck >= 16)
+		{
+			m_GameOver1.dibuixa(0,0);
+			//m_GameOver1.destrueix();
+		}
+	if ((m_uSuck < 16) && (m_uSuck > 12))
+		{
+			//m_GameOver1.destrueix();
+			m_GameOver2.dibuixa(0,0);
+		}
+	if ((m_uSuck < 12) && (m_uSuck > 8))
+		{
+			//m_GameOver2.destrueix();
+			m_GameOver3.dibuixa(0,0);
+		}
+	if ((m_uSuck <8) && (m_uSuck > 4))
+		{
+			//m_GameOver3.destrueix();
+			m_GameOver4.dibuixa(0,0);
+		}
+	if ((m_uSuck < 4) && (m_uSuck >= 0) )
+		{
+			//m_GameOver4.destrueix();
+			m_GameOver5.dibuixa(0,0);
+			//return true;
+		}
 
 
 }

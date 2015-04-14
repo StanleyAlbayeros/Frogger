@@ -42,6 +42,15 @@ Area Granota::getAreaOcupada()
 	
 	return Area(x0 , x1 , y0 , y1);
 }
+/**
+* utilizado para los movimientos intermedios
+*/
+
+void Granota::setGrafic(Grafic grafic2)
+{
+	m_grafic = grafic2;
+}
+
 
 /**
  * Dibuixa la granota a la posició actual.
@@ -50,6 +59,7 @@ void Granota::dibuixa()
 {
 	m_grafic.dibuixa(m_posicioX,m_posicioY);
 }
+
 
 /**
  * Mou la granota cap a l'esquerra.
@@ -65,6 +75,8 @@ void Granota::mouEsquerra()
 	{
 	m_posicioX -= DESPLACAMENT_GRANOTA;
 	}
+
+
 }
 
 /**
@@ -89,6 +101,8 @@ void Granota::mouDreta()
 void Granota::mouAmunt()
 {	
 	int m_tempY=m_posicioY-DESPLACAMENT_GRANOTA; 
+
+
 	// creo una variable adicional que evita
 	// que la rana se salga hacia el lado, ya que la funcion
 	// espaiPermes no lo evita, simplemente prohibe que se mueva
@@ -96,7 +110,14 @@ void Granota::mouAmunt()
 	if (m_tempY>=INICI_Y)
 	{
 		m_posicioY -= DESPLACAMENT_GRANOTA;
+		Grafic rana2;
+		rana2.crea("data/GraficsGranota/Granota_Amunt_2.png");
+		Granota rana_temp = Granota(rana2 , m_posicioX-10, m_posicioY-10);
+		rana_temp.mouAPosicioInicial();
+		rana_temp.dibuixa();
+		int i = 0;
 	}
+
 }
 
 /**
@@ -120,6 +141,7 @@ void Granota::mouAvall()
  */
 void Granota::mouAPosicioInicial()
 {
-	m_posicioX = (FI_X - INICI_X - m_grafic.getScaleX())/2;
-	m_posicioY = FI_Y - DESPLACAMENT_GRANOTA - 8 ;
+	m_posicioX = (m_posicioInicialX);
+	m_posicioY = (m_posicioInicialY);
 }
+

@@ -70,23 +70,23 @@ void mouGranota(int &x, int &y, int despX, int despY)
 }
 
 //Funcio que mostra les vides
-void mostraVides (int vides, Grafic granotaVida)
+void mostraVides (int life, Grafic grafic)
 {
-	switch (vides)
+	switch (life)
 	{
 		case 1:
-			granotaVida.dibuixa(INICI_X, FI_Y+10+granotaVida.getScaleY());
+			grafic.dibuixa(INICI_X, FI_Y+10+grafic.getScaleY());
 			break;
 		
 		case 2:
-			granotaVida.dibuixa(INICI_X, FI_Y+10+granotaVida.getScaleY());
-			granotaVida.dibuixa(INICI_X+granotaVida.getScaleX(), FI_Y+10+granotaVida.getScaleY());
+			grafic.dibuixa(INICI_X, FI_Y+10+grafic.getScaleY());
+			grafic.dibuixa(INICI_X+grafic.getScaleX(), FI_Y+10+grafic.getScaleY());
 			break;
 		
 		case 3:
-			granotaVida.dibuixa(INICI_X, FI_Y+10+granotaVida.getScaleY());
-			granotaVida.dibuixa(INICI_X+granotaVida.getScaleX(), FI_Y+10+granotaVida.getScaleY());
-			granotaVida.dibuixa(INICI_X+(2*granotaVida.getScaleX()), FI_Y+10+granotaVida.getScaleY());
+			grafic.dibuixa(INICI_X, FI_Y+10+grafic.getScaleY());
+			grafic.dibuixa(INICI_X+grafic.getScaleX(), FI_Y+10+grafic.getScaleY());
+			grafic.dibuixa(INICI_X+(2*grafic.getScaleX()), FI_Y+10+grafic.getScaleY());
 			break;
 
 	}
@@ -106,10 +106,15 @@ int juga(int nivell)
 	InitGame (estat);
 	Pantalla pantalla;
 	char tecla = 0; // Variable char on desar la tecla pulsada
-	int haMortLaGranota = 0; // Variable boleana per saber si la granota esta morta
+	int haMortLaGranota = 0; // Variable boleana per 
+							//saber si la granota esta morta
 	int punts = 0; // Punts acumulats durant la partida
 	int vides = 3; // Vides que li queden a la granota
+	int count=10;
+	int dir=0;
 	pantalla.inicia(vides);
+	Grafic granotaVida;
+	granotaVida.crea("data/GraficsGranota/Granota_Amunt_1.png");
 	Video_ShowWindow();
 	//pantalla.dibuixa();
 	// Inizialitza llavor per a la funci� rand()
@@ -119,31 +124,36 @@ int juga(int nivell)
 	{
 		haMortLaGranota = 0;
 
-		ProcessEvents (estat); // Captura els events que s'han produit en el darrer cicle
-
+		ProcessEvents (estat);	// Captura els events que 
+								// s'han produit en el darrer cicle
+		
 		if (Keyboard_GetKeyTrg(KEYBOARD_ESCAPE))
 		{
 			estat.bExit=true;
 		}
-		//mouGranota(X) x=1->4 1=left 2=right 3=up 4=down
+		
 		if (Keyboard_GetKeyTrg(KEYBOARD_LEFT))
 		{
-			pantalla.mouGranota(1);
+			dir = 1;
+			pantalla.mouGranota(dir);
 			
 		}
 		if (Keyboard_GetKeyTrg(KEYBOARD_RIGHT))
 		{
-			pantalla.mouGranota(2);
+			dir= 2;
+			pantalla.mouGranota(dir);
 		}
 
 		if (Keyboard_GetKeyTrg(KEYBOARD_UP))
 		{
-			pantalla.mouGranota(3);
+			dir=3;
+			pantalla.mouGranota(dir);
 		}
 
 		if (Keyboard_GetKeyTrg(KEYBOARD_DOWN))
 		{
-			pantalla.mouGranota(4);
+			dir=4;
+			pantalla.mouGranota(dir);
 		}
 
 		// Secuencia de control del coche
@@ -166,10 +176,17 @@ int juga(int nivell)
 			}
 		}
 
-
+		
 		// Dibuixa els gràfics
-		pantalla.dibuixa();
+		count--;
 
+		pantalla.dibuixa(dir, count);
+		if (count == 0){
+			count =10;
+			dir = 0;
+		}
+
+		mostraVides(vides, granotaVida);
 		VideoUpdate(estat); // Actualitza la pantalla
 
 	} while ((nivell < 4) && (vides > 0) && (!estat.bExit));

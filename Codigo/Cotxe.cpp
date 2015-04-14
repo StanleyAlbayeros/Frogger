@@ -13,10 +13,16 @@ Cotxe::Cotxe()
  * @param grafic Grafic amb el que ilustrar el vehicle
  * @param velocitat Velocitat de moviment
  */
-Cotxe::Cotxe(Grafic grafic, int velocitat)
+Cotxe::Cotxe(Grafic grafic, int velocitat, bool direccio)
 {
 	m_grafic = grafic;
 	m_velocitat = velocitat;
+	m_contador = 0;
+	m_direccio= direccio;	//añado esta variable para poder cambiar 
+							//facilmente la dirección del vehículo.
+							//Probable método si se quiere implementar ++
+							// dificultad randomizar la dirección entre 
+							// spawns de vehiculo
 }
 
 /**
@@ -52,7 +58,17 @@ void Cotxe::dibuixa()
  */
 void Cotxe::mou()
 {
-	m_posicioX = m_posicioX+m_velocitat;
+	int dir;
+	if (m_direccio) {
+		dir=1;
+	}
+	else {
+		dir=-1;
+	}
+	//if (m_contador%100 != 5){
+		m_posicioX = m_posicioX + (DESPLACAMENT_COTXE * dir * m_velocitat/6);
+	//}
+	//m_contador++;
 }
 
 /**
@@ -60,9 +76,16 @@ void Cotxe::mou()
  * @param iniciXCarril Coordenada X inicial del carril
  * @param iniciYCarril Coordenada Y del carril
  */
-void Cotxe::mouAIniciCarril(int iniciXCarril, int iniciYCarril)
+void Cotxe::mouAIniciCarril(int iniciYCarril)
 {
-	m_posicioX= iniciXCarril;
+	//la posición de inicio de la X depende de la dirección del vehiculo
+	// lo único que nos pasa la "main" es el carril en el que va.
+	if (m_direccio){
+	m_posicioX = INICI_X;
+	}
+	else {
+	m_posicioX = FI_X;
+	}
 	m_posicioY= iniciYCarril;
 	
 }

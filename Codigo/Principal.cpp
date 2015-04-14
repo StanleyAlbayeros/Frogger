@@ -40,7 +40,8 @@ int main()
 				{
 					mostraMenuNivellDificultat();
 					nivell = _getch(); // Llegeix tecla apretada
-					if ((nivell != '1') && (nivell != '2') && (nivell != '3')) // Comprova si tecla es valida
+					// Comprova si tecla es valida
+					if ((nivell != '1') && (nivell != '2') && (nivell != '3'))
 					{
 						printf("Opcio incorrecta.\n"); // Mostra text
 						Sleep(2000);

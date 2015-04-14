@@ -3,7 +3,7 @@
 #include "lib\Grafic.h"
 
 // nº de píxels que es desplaça la granota a cada moviment
-#define DESPLACAMENT_GRANOTA 46
+#define DESPLACAMENT_GRANOTA 20
 
 class Granota
 {
@@ -13,6 +13,7 @@ public:
 	~Granota();
 	Area getAreaOcupada();
 	void dibuixa();
+	void setGrafic(Grafic grafic2);
 	void mouAmunt();
 	void mouAvall();
 	void mouDreta();

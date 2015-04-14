@@ -24,7 +24,7 @@ public:
 	Pantalla();
 	~Pantalla();
 	void inicia(int nivell);
-	void dibuixa();
+	void dibuixa(int dir, int count);
 	void mouGranota(int direccio);
 	bool esGranotaDinsCova();
 	void mouCotxes(); //JUGUETEANDO CON MAS COCHES!!!
@@ -32,14 +32,31 @@ public:
 private:
 	Grafic m_graficFons;
 	Grafic m_graficCova;
+	
 	Grafic m_graficGranotaAmunt;
+	Grafic m_graficGranotaAvall;
+	Grafic m_graficGranotaEsquerra;
+	Grafic m_graficGranotaDreta;
+
+	Grafic m_graficGranotaAmunt2;
+	Grafic m_graficGranotaAvall2;
+	Grafic m_graficGranotaEsquerra2;
+	Grafic m_graficGranotaDreta2;
+
 	Grafic m_graficCotxe1;
 	Grafic m_graficCotxe2;
+	Grafic m_graficCotxe3;
+	Grafic m_graficCotxe4;
+	Grafic m_graficCotxe5;
+
 	Area m_areaTotal;
 	Cova m_cova;
 	Granota m_granota;
 	Cotxe m_cotxe1;
 	Cotxe m_cotxe2;
+	Cotxe m_cotxe3;
+	Cotxe m_cotxe4;
+	Cotxe m_cotxe5;
 	int m_iniciCarrilsY;
 	int m_nCarrils1;
 	int m_nCarrils2;

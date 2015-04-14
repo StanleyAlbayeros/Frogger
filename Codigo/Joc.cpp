@@ -70,7 +70,7 @@ void mouGranota(int &x, int &y, int despX, int despY)
 }
 
 //Funcio que mostra les vides
-void mostraVides (int life, Grafic grafic)
+void mostraVides (int life, bool onedown, Grafic grafic)
 {
 	switch (life)
 	{
@@ -112,6 +112,7 @@ int juga(int nivell)
 	int vides = 3; // Vides que li queden a la granota
 	int count=10;
 	int dir=0;
+	bool onedown = false; // controla la animacion de perder vida
 	int gameover= THEEND;
 	bool end = false;
 	pantalla.inicia(vides);
@@ -195,7 +196,7 @@ int juga(int nivell)
 		
 		
 
-		mostraVides(vides, granotaVida);
+		mostraVides(vides, onedown, granotaVida);
 
 		if (vides == 0)
 		{

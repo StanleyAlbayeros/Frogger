@@ -25,7 +25,7 @@ const int INICI_Y_GRANOTA = FI_Y + 5;
 
 int juga(int Nivell);
 
-void mostraVides(int life, Grafic grafic);
+void mostraVides(int life, bool onedown, Grafic grafic);
 
 void mouGranota(int &x, int &y, int despX, int despY);
 

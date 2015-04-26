@@ -24,16 +24,22 @@ public:
 	Pantalla();
 	~Pantalla();
 	void inicia(int nivell);
+	void reset(int nivell);
+	void dibuixaCovesOcupades();
 	void dibuixa(int dir, int count);
 	void mouGranota(int direccio);
-	bool esGranotaDinsCova();
+	int esGranotaDinsCova();
 	void mouCotxes(); //JUGUETEANDO CON MAS COCHES!!!
 	bool haMortLaGranota();
+	void mostraVides(int life, bool onedown);
 	void GameOver(int nopls);
+	void LevelUp(int yespls);
+	void puntos100(int pointsup);
 
 private:
 	Grafic m_graficFons;
 	Grafic m_graficCova;
+	Grafic m_graficCovaOcupada;
 	
 	Grafic m_graficGranotaAmunt;
 	Grafic m_graficGranotaAvall;
@@ -57,18 +63,35 @@ private:
 	Grafic m_GameOver4;
 	Grafic m_GameOver5;
 
+	Grafic m_graficPoints100;
+
+	Grafic m_LevelUp1;
+	Grafic m_LevelUp2;
+	Grafic m_LevelUp3;
+	Grafic m_LevelUp4;
+	Grafic m_LevelUp5;
+
 	Area m_areaTotal;
-	Cova m_cova;
+
+	Cova m_cova1;
+	Cova m_cova2;
+	Cova m_cova3;
+	Cova m_cova4;
+	Cova m_cova5;
+
 	Granota m_granota;
+
 	Cotxe m_cotxe1;
 	Cotxe m_cotxe2;
 	Cotxe m_cotxe3;
 	Cotxe m_cotxe4;
 	Cotxe m_cotxe5;
+
 	int m_iniciCarrilsY;
 	int m_nCarrils1;
 	int m_nCarrils2;
 	int triaCarril(int numcotxe);
+	bool m_randomCotxe [4];
 	bool espaiPermes(Area area);
 };
 

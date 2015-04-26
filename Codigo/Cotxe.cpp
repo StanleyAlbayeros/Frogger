@@ -59,16 +59,17 @@ void Cotxe::dibuixa()
 void Cotxe::mou()
 {
 	int dir;
-	if (m_direccio) {
+
+	if (m_direccio) 
+	{
 		dir=1;
 	}
-	else {
+
+	else 
+	{
 		dir=-1;
 	}
-	//if (m_contador%100 != 5){
-		m_posicioX = m_posicioX + (DESPLACAMENT_COTXE * dir * m_velocitat/6);
-	//}
-	//m_contador++;
+		m_posicioX = m_posicioX + (DESPLACAMENT_COTXE * dir * m_velocitat/10);
 }
 
 /**

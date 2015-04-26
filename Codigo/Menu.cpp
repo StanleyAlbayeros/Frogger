@@ -5,12 +5,13 @@
  */
 void mostraMenuPrincipal()
 {
-	printf("------ Menu Principal ------ \n");
+	printf("------ Main Menu ------ \n");
 	printf("\n");
-	printf("1.- Jugar \n");
-	printf("2.- Configurar \n");
-	printf("3.- Millors Puntuacions \n");
-	printf("4.- Sortir \n");
+	printf("1 - Play \n");
+	printf("2 - Change difficulty \n");
+	printf("3 - Toggle animations \n");
+	printf("4 - Top Scores \n");
+	printf("5 - Exit \n");
 	printf("\n");
 	printf("---------------------------- \n");
 
@@ -21,11 +22,25 @@ void mostraMenuPrincipal()
  */
 void mostraMenuNivellDificultat()
 {
-	printf("------ Menu Dificultat ------\n");
+	printf("------ Too hard for you? ------\n");
 	printf("\n");
-	printf("1.- Principiant\n");
-	printf("2.- Mitja\n");
-	printf("3.- Expert\n");
+	printf("1 - Easy\n");
+	printf("2 - Medium\n");
+	printf("3 - Hard\n");
+	printf("4 - Good Luck \n");
 	printf("\n");
 	printf("----------------------------\n");
 }
+
+/**
+ * Mostra el menú d'Animacions
+ */
+void mostraMenuanimacions()
+{
+	printf("------ wow doge much annoying ------\n");
+	printf("\n");
+	printf("Animations on (y|Y) or off(n|N)?\n");
+	printf("\n");
+	printf("----------------------------\n");
+}
+

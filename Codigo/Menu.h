@@ -3,3 +3,4 @@
 
 void mostraMenuPrincipal();
 void mostraMenuNivellDificultat();
+void mostraMenuanimacions();

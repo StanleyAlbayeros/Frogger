@@ -23,7 +23,7 @@
 // Desplaçament inicial de la granota respecte al final del taulell
 const int INICI_Y_GRANOTA = FI_Y + 5;
 
-int juga(int Nivell);
+int juga(int Nivell, bool animacio);
 
 void mostraVides(int life, bool onedown, Grafic grafic);
 

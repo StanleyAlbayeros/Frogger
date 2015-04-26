@@ -14,9 +14,7 @@
  */
 int esGespa(int x, int y)
 {
-
 	return (y >= FI_Y - 1) || (y < INICI_Y + 3);
-
 }
 
 
@@ -69,28 +67,7 @@ void mouGranota(int &x, int &y, int despX, int despY)
 	y += despY;
 }
 
-//Funcio que mostra les vides
-void mostraVides (int life, bool onedown, Grafic grafic)
-{
-	switch (life)
-	{
-		case 1:
-			grafic.dibuixa(INICI_X, FI_Y+10+grafic.getScaleY());
-			break;
-		
-		case 2:
-			grafic.dibuixa(INICI_X, FI_Y+10+grafic.getScaleY());
-			grafic.dibuixa(INICI_X+grafic.getScaleX(), FI_Y+10+grafic.getScaleY());
-			break;
-		
-		case 3:
-			grafic.dibuixa(INICI_X, FI_Y+10+grafic.getScaleY());
-			grafic.dibuixa(INICI_X+grafic.getScaleX(), FI_Y+10+grafic.getScaleY());
-			grafic.dibuixa(INICI_X+(2*grafic.getScaleX()), FI_Y+10+grafic.getScaleY());
-			break;
 
-	}
-}
 
 /**
  * Juga una partida de tres vides
@@ -98,7 +75,7 @@ void mostraVides (int life, bool onedown, Grafic grafic)
  * @param nivell nivell de la partida
  * @return
  */
-int juga(int nivell)
+int juga(int nivell, bool animacio)
 {
 	t_programStatus estat;
 	
@@ -106,26 +83,45 @@ int juga(int nivell)
 	InitGame (estat);
 	Pantalla pantalla;
 	char tecla = 0; // Variable char on desar la tecla pulsada
+	int countdown = 100000000; // iniciamos una cuenta atrás para evitar que se pueda ganar el juego manteniendo dir(up)!
 	int haMortLaGranota = 0; // Variable boleana per 
 							//saber si la granota esta morta
+
+	int iter = 0; //controla gameover/levelup
 	int punts = 0; // Punts acumulats durant la partida
 	int vides = 3; // Vides que li queden a la granota
 	int count=10;
 	int dir=0;
-	bool onedown = false; // controla la animacion de perder vida
+	int puntscount= 0 ;
+	int covaOcupada = 0;
+	int covaCount = 0;
+	bool onedown = false; // controla la animacion de perder vida TODO
 	int gameover= THEEND;
 	bool end = false;
-	pantalla.inicia(vides);
+	bool godmode=false;
+
+	if (nivell == 4 )
+	{
+		nivell = 3;
+		godmode=true;
+	}
+
+	pantalla.inicia(nivell);
 	Grafic granotaVida;
 	granotaVida.crea("data/GraficsGranota/Granota_Amunt_1.png");
 	Video_ShowWindow();
-	//pantalla.dibuixa();
+
 	// Inizialitza llavor per a la funci� rand()
 	srand((unsigned) time(NULL));
 
 	do
 	{
 		haMortLaGranota = 0;
+		//bucle pequeño para evitar que se pueda ganar solo pulsando arriba
+		while (countdown != 0) 
+		{
+			countdown--;
+		}
 
 		ProcessEvents (estat);	// Captura els events que 
 								// s'han produit en el darrer cicle
@@ -155,67 +151,93 @@ int juga(int nivell)
 
 			if (Keyboard_GetKeyTrg(KEYBOARD_DOWN))
 			{
-				dir=4;
-				pantalla.mouGranota(dir);
+				if (!godmode)
+					{
+					dir=4;
+					pantalla.mouGranota(dir);
+					}
 			}
-		
-		// Secuencia de control del coche
+		// Cotxes
 		pantalla.mouCotxes();
 
-
+		
 		if (pantalla.haMortLaGranota())
 		{
 			vides= vides-1;
-			pantalla.inicia(nivell);
+			pantalla.reset(nivell);
 		}
 
-		if (pantalla.esGranotaDinsCova())
-		{
-			punts += 100 * nivell;
-			nivell+=1;
-			if (nivell<4)
+		//puntuación que depende del nivel y de cada cueva!
+		if ( pantalla.esGranotaDinsCova() )
 			{
-				pantalla.inicia(nivell+1);
-			}
-		}
+				puntscount=THEEND*5;				
+				covaCount++;
+				punts += 100 * nivell;
+				pantalla.reset(nivell);
 
+			}
+
+		//check de si hemos ocupado las cinco cuevas
+		if ( covaCount==5 )
+			{
+				// pantalla del LevelUp, el if controla si queremos animaciones de pantalla
+				if (animacio)
+				{
+				iter = 4;
+				do {
+					
+					pantalla.LevelUp(gameover);
+					gameover--;
+					if (gameover == 0){ gameover = THEEND ; iter--; }
+					VideoUpdate(estat); // Actualitza la pantalla
+				
+					} while (iter!=0);
+				}
+
+				nivell+=1;
+				if (nivell<4)
+				{
+					pantalla.inicia(nivell+1);
+				}
+				countdown = 100000;
+				covaCount = 0;
+			}
+
+		
+		
+		count--;// Contador que controla alternar las graficas de Granota
 		
 		// Dibuixa els gràfics
-		count--;
-
-		// Contador que controla alternar las graficas de Granota
-
-		
 		pantalla.dibuixa(dir, count);
 		
 		if (count ==0)
 			{
-			//dir = 0;
 			count =10;
 			}
-		
-		
+		// vidas de la rana
+		pantalla.mostraVides(vides, onedown);
 
-		mostraVides(vides, onedown, granotaVida);
-
-		if (vides == 0)
-		{
-			int iter = 4;
+		// pantalla de Gameover
+		if (vides == 0 && animacio)
+		{	
+			iter = 4;
 			do {
-				//ProcessEvents (estat);
 				pantalla.GameOver(gameover);
 				gameover--;
 				if (gameover == 0){ gameover = THEEND ; iter--; }
-				VideoUpdate(estat); // Actualitza la pantalla
-				
+				VideoUpdate(estat); // Actualiza la pantalla
 				} while (iter!=0);
+		}
+
+		if (animacio)
+		{
+			pantalla.puntos100(puntscount);
+			puntscount--;
 		}
 
 		VideoUpdate(estat); // Actualitza la pantalla
 
 	} while ((nivell < 4) && (vides!=0) && (!estat.bExit));
-
-	
 
 	Video_Release(); // Allibera els recursos
 

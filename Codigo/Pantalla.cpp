@@ -64,6 +64,18 @@ Pantalla::Pantalla()
 	m_cova4 = Cova(m_graficCova, m_graficCovaOcupada, INICI_X + ( 3 * m_graficCova.getScaleX()), INICI_Y);
 	m_cova5 = Cova(m_graficCova, m_graficCovaOcupada, INICI_X + ( 4 * m_graficCova.getScaleX()), INICI_Y);
 
+	//Grafics dels numeros
+	m_graficNum0.crea("data/numeros/numero0000.png");
+	m_graficNum1.crea("data/numeros/numero0001.png");
+	m_graficNum2.crea("data/numeros/numero0002.png");
+	m_graficNum3.crea("data/numeros/numero0003.png");
+	m_graficNum4.crea("data/numeros/numero0004.png");
+	m_graficNum5.crea("data/numeros/numero0005.png");
+	m_graficNum6.crea("data/numeros/numero0006.png");
+	m_graficNum7.crea("data/numeros/numero0007.png");
+	m_graficNum8.crea("data/numeros/numero0008.png");
+	m_graficNum9.crea("data/numeros/numero0009.png");
+
 	for (int j=0 ; j<5 ; j++)
 	{
 		m_randomCotxe[j]=0;
@@ -525,5 +537,41 @@ void Pantalla::LevelUp(int yespls)
 
 		}
 
+
+}
+
+void Pantalla::tiemporestante(int tiempo)
+{
+	int digits[2];
+	int i;
+
+
+
+	digits[0]= tiempo / 10000 % 10 ;
+	digits[1]= tiempo / 1000 % 10;
+
+	for(i=0;i<2;i++)												
+			{
+				if(digits[i]==0)
+				m_graficNum0.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				if(digits[i]==1)
+				m_graficNum1.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				if(digits[i]==2)
+				m_graficNum2.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				if(digits[i]==3)
+				m_graficNum3.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				if(digits[i]==4)
+				m_graficNum4.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				if(digits[i]==5)
+				m_graficNum5.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				if(digits[i]==6)
+				m_graficNum6.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				if(digits[i]==7)
+				m_graficNum7.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				if(digits[i]==8)
+				m_graficNum8.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				if(digits[i]==9)
+				m_graficNum9.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+			}
 
 }

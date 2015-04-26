@@ -4,6 +4,7 @@
 #include "lib\Grafic.h"
 #include "Pantalla.h"
 #include "Granota.h"
+#include <time.h>
 
 
 /**
@@ -106,6 +107,12 @@ int juga(int nivell, bool animacio)
 		godmode=true;
 	}
 
+	//variables usadas para el countdown
+	clock_t t;
+	clock_t t2;
+	t = clock();
+	t2= clock();
+
 	pantalla.inicia(nivell);
 	Grafic granotaVida;
 	granotaVida.crea("data/GraficsGranota/Granota_Amunt_1.png");
@@ -135,8 +142,8 @@ int juga(int nivell, bool animacio)
 			{
 				dir = 1;
 				pantalla.mouGranota(dir);
-			
 			}
+			
 			if (Keyboard_GetKeyTrg(KEYBOARD_RIGHT))
 			{
 				dir= 2;
@@ -157,14 +164,19 @@ int juga(int nivell, bool animacio)
 					pantalla.mouGranota(dir);
 					}
 			}
+
 		// Cotxes
 		pantalla.mouCotxes();
-
+				
+		t2 = clock() -t;
 		
-		if (pantalla.haMortLaGranota())
+
+		if (pantalla.haMortLaGranota() || (t2>=60000) )
 		{
 			vides= vides-1;
 			pantalla.reset(nivell);
+			t= clock();
+			t2=t;
 		}
 
 		//puntuación que depende del nivel y de cada cueva!
@@ -234,7 +246,7 @@ int juga(int nivell, bool animacio)
 			pantalla.puntos100(puntscount);
 			puntscount--;
 		}
-
+		pantalla.tiemporestante(t2);
 		VideoUpdate(estat); // Actualitza la pantalla
 
 	} while ((nivell < 4) && (vides!=0) && (!estat.bExit));

@@ -35,6 +35,7 @@ public:
 	void GameOver(int nopls);
 	void LevelUp(int yespls);
 	void puntos100(int pointsup);
+	void tiemporestante(int tiempo);
 
 private:
 	Grafic m_graficFons;
@@ -71,6 +72,17 @@ private:
 	Grafic m_LevelUp4;
 	Grafic m_LevelUp5;
 
+	Grafic m_graficNum0;
+	Grafic m_graficNum1;
+	Grafic m_graficNum2;
+	Grafic m_graficNum3;
+	Grafic m_graficNum4;
+	Grafic m_graficNum5;
+	Grafic m_graficNum6;
+	Grafic m_graficNum7;
+	Grafic m_graficNum8;
+	Grafic m_graficNum9;
+
 	Area m_areaTotal;
 
 	Cova m_cova1;
@@ -93,5 +105,6 @@ private:
 	int triaCarril(int numcotxe);
 	bool m_randomCotxe [4];
 	bool espaiPermes(Area area);
+	int m_temps[2]; // digitos del tiempo
 };
 

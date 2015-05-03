@@ -54,7 +54,8 @@ bool Cova::esAccessible(Area area)
 	{
 		return !m_interiorAmbParets.solapa(area);
 	}
-	return !area.solapa(m_interiorAmbParets);
+	//return !area.solapa(m_interiorAmbParets);
+	return !m_interiorAmbParets.solapa(area);
 }
 
 /**

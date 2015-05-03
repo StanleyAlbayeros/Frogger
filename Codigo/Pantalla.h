@@ -35,7 +35,7 @@ public:
 	void GameOver(int nopls);
 	void LevelUp(int yespls);
 	void puntos100(int pointsup);
-	void tiemporestante(int tiempo);
+	void tiemporestante(int tiempo, int tempmax);
 
 private:
 	Grafic m_graficFons;

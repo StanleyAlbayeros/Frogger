@@ -100,6 +100,7 @@ int juga(int nivell, bool animacio)
 	int gameover= THEEND;
 	bool end = false;
 	bool godmode=false;
+	int tempmax = 60000;
 
 	if (nivell == 4 )
 	{
@@ -171,7 +172,7 @@ int juga(int nivell, bool animacio)
 		t2 = clock() -t;
 		
 
-		if (pantalla.haMortLaGranota() || (t2>=60000) )
+		if (pantalla.haMortLaGranota() || (t2>=tempmax) )
 		{
 			vides= vides-1;
 			pantalla.reset(nivell);
@@ -186,6 +187,8 @@ int juga(int nivell, bool animacio)
 				covaCount++;
 				punts += 100 * nivell;
 				pantalla.reset(nivell);
+				t= clock();
+				t2=t;
 
 			}
 
@@ -207,6 +210,7 @@ int juga(int nivell, bool animacio)
 				}
 
 				nivell+=1;
+				tempmax = tempmax - 15000;
 				if (nivell<4)
 				{
 					pantalla.inicia(nivell+1);
@@ -246,7 +250,7 @@ int juga(int nivell, bool animacio)
 			pantalla.puntos100(puntscount);
 			puntscount--;
 		}
-		pantalla.tiemporestante(t2);
+		pantalla.tiemporestante(t2, tempmax);
 		VideoUpdate(estat); // Actualitza la pantalla
 
 	} while ((nivell < 4) && (vides!=0) && (!estat.bExit));

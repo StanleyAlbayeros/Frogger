@@ -424,7 +424,7 @@ void Pantalla::mostraVides (int life, bool onedown)
 		case 1:
 			m_graficGranotaAmunt.dibuixa(INICI_X, FI_Y+10+m_graficGranotaAmunt.getScaleY());
 			break;
-		
+			
 		case 2:
 			m_graficGranotaAmunt.dibuixa(INICI_X, FI_Y+10+m_graficGranotaAmunt.getScaleY());
 			m_graficGranotaAmunt.dibuixa(INICI_X+m_graficGranotaAmunt.getScaleX(), FI_Y+10+m_graficGranotaAmunt.getScaleY());
@@ -540,15 +540,15 @@ void Pantalla::LevelUp(int yespls)
 
 }
 
-void Pantalla::tiemporestante(int tiempo)
+void Pantalla::tiemporestante(int tiempo, int tempmax)
 {
 	int digits[2];
 	int i;
 
 
 
-	digits[0]= tiempo / 10000 % 10 ;
-	digits[1]= tiempo / 1000 % 10;
+	digits[0]= ( tempmax - tiempo ) / 10000 % 10 ;
+	digits[1]= ( tempmax - tiempo ) / 1000 % 10;
 
 	for(i=0;i<2;i++)												
 			{

@@ -46,7 +46,7 @@ int main()
 					// Comprova si tecla es valida
 					if ((nivell != '1') && (nivell != '2') && (nivell != '3') && (nivell != '4'))
 					{
-						printf("Opcio incorrecta.\n"); // Mostra text
+						printf("Try again\n"); // Mostra text
 						Sleep(2000);
 					}
 				} while ((nivell != '1') && (nivell != '2') && (nivell != '3') && (nivell != '4')); // Repeteix mentre tecla no valida
@@ -60,7 +60,7 @@ int main()
 					// Comprova si tecla es valida
 					if ((lletra != 'y') && (lletra != 'Y') && (lletra != 'n') && (lletra != 'N'))
 					{
-						printf("Opcio incorrecta.\n"); // Mostra text
+						printf("Try again\n"); // Mostra text
 						Sleep(2000);
 					}
 					switch (lletra)
@@ -86,7 +86,7 @@ int main()
 				break;
 			case OPCIO_PUNTUACIO:
 				escriuRanking(millorsJugadors);
-				printf("Prem una tecla per tornar al menu principal");
+				printf("Press a key to return to the main menu\n");
 				_getch(); // Llegeix tecla apretada
 				break;
 			

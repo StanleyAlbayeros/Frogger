@@ -75,8 +75,6 @@ void Granota::mouEsquerra()
 	{
 	m_posicioX -= DESPLACAMENT_GRANOTA;
 	}
-
-
 }
 
 /**
@@ -101,8 +99,6 @@ void Granota::mouDreta()
 void Granota::mouAmunt()
 {	
 	int m_tempY=m_posicioY-DESPLACAMENT_GRANOTA; 
-
-
 	// creo una variable adicional que evita
 	// que la rana se salga hacia el lado, ya que la funcion
 	// espaiPermes no lo evita, simplemente prohibe que se mueva
@@ -117,7 +113,6 @@ void Granota::mouAmunt()
 		rana_temp.dibuixa();
 		int i = 0;
 	}
-
 }
 
 /**

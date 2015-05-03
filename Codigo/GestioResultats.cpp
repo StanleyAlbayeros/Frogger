@@ -49,7 +49,7 @@ void desplacaArray(TipusJugador TMillorsJugadors[], int posicio)
 
 void emplenaPosicioArray(TipusJugador &TMillorsJugadors, int punts)
 {
-	printf("Entra el teu nom\n");
+	printf("Enter your name\n");
 	scanf("%s", &(TMillorsJugadors.nom));
 	(TMillorsJugadors).puntuacio = punts;
 }

@@ -45,7 +45,7 @@ void mouCotxe(int &x, int &y)
 {
 	if (x < FI_X)
 	{
-		x= x+7;
+		x = x+7;
 	}
 	else
 	{
@@ -91,15 +91,15 @@ int juga(int nivell, bool animacio)
 	int iter = 0; //controla gameover/levelup
 	int punts = 0; // Punts acumulats durant la partida
 	int vides = 3; // Vides que li queden a la granota
-	int count=10;
-	int dir=0;
+	int count = 10;
+	int dir = 0;
 	int puntscount= 0 ;
 	int covaOcupada = 0;
 	int covaCount = 0;
 	bool onedown = false; // controla la animacion de perder vida TODO
-	int gameover= THEEND;
+	int gameover = THEEND;
 	bool end = false;
-	bool godmode=false;
+	bool godmode = false;
 	int tempmax = 60000;
 
 	if (nivell == 4 )
@@ -112,7 +112,7 @@ int juga(int nivell, bool animacio)
 	clock_t t;
 	clock_t t2;
 	t = clock();
-	t2= clock();
+	t2 = clock();
 
 	pantalla.inicia(nivell);
 	Grafic granotaVida;
@@ -136,7 +136,7 @@ int juga(int nivell, bool animacio)
 		
 		if (Keyboard_GetKeyTrg(KEYBOARD_ESCAPE))
 		{
-			estat.bExit=true;
+			estat.bExit = true;
 		}
 		//direcciones
 			if (Keyboard_GetKeyTrg(KEYBOARD_LEFT))
@@ -147,13 +147,13 @@ int juga(int nivell, bool animacio)
 			
 			if (Keyboard_GetKeyTrg(KEYBOARD_RIGHT))
 			{
-				dir= 2;
+				dir = 2;
 				pantalla.mouGranota(dir);
 			}
 
 			if (Keyboard_GetKeyTrg(KEYBOARD_UP))
 			{
-				dir=3;
+				dir = 3;
 				pantalla.mouGranota(dir);
 			}
 
@@ -161,7 +161,7 @@ int juga(int nivell, bool animacio)
 			{
 				if (!godmode)
 					{
-					dir=4;
+					dir = 4;
 					pantalla.mouGranota(dir);
 					}
 			}
@@ -172,28 +172,28 @@ int juga(int nivell, bool animacio)
 		t2 = clock() -t;
 		
 
-		if (pantalla.haMortLaGranota() || (t2>=tempmax) )
+		if (pantalla.haMortLaGranota() || (t2 >= tempmax) )
 		{
-			vides= vides-1;
+			vides = vides-1;
 			pantalla.reset(nivell);
-			t= clock();
-			t2=t;
+			t = clock();
+			t2 = t;
 		}
 
 		//puntuación que depende del nivel y de cada cueva!
 		if ( pantalla.esGranotaDinsCova() )
 			{
-				puntscount=THEEND*5;				
+				puntscount = THEEND*5;				
 				covaCount++;
 				punts += 100 * nivell;
 				pantalla.reset(nivell);
-				t= clock();
-				t2=t;
+				t = clock();
+				t2 = t;
 
 			}
 
 		//check de si hemos ocupado las cinco cuevas
-		if ( covaCount==5 )
+		if ( covaCount == 5 )
 			{
 				// pantalla del LevelUp, el if controla si queremos animaciones de pantalla
 				if (animacio)
@@ -206,7 +206,7 @@ int juga(int nivell, bool animacio)
 					if (gameover == 0){ gameover = THEEND ; iter--; }
 					VideoUpdate(estat); // Actualitza la pantalla
 				
-					} while (iter!=0);
+					} while (iter != 0);
 				}
 
 				nivell+=1;
@@ -226,9 +226,9 @@ int juga(int nivell, bool animacio)
 		// Dibuixa els gràfics
 		pantalla.dibuixa(dir, count);
 		
-		if (count ==0)
+		if (count == 0)
 			{
-			count =10;
+			count = 10;
 			}
 		// vidas de la rana
 		pantalla.mostraVides(vides, onedown);
@@ -242,7 +242,7 @@ int juga(int nivell, bool animacio)
 				gameover--;
 				if (gameover == 0){ gameover = THEEND ; iter--; }
 				VideoUpdate(estat); // Actualiza la pantalla
-				} while (iter!=0);
+				} while (iter != 0);
 		}
 
 		if (animacio)
@@ -253,7 +253,7 @@ int juga(int nivell, bool animacio)
 		pantalla.tiemporestante(t2, tempmax);
 		VideoUpdate(estat); // Actualitza la pantalla
 
-	} while ((nivell < 4) && (vides!=0) && (!estat.bExit));
+	} while ((nivell < 4) && (vides != 0) && (!estat.bExit));
 
 	Video_Release(); // Allibera els recursos
 

@@ -66,12 +66,12 @@ void Granota::dibuixa()
  */
 void Granota::mouEsquerra()
 {
-	int m_tempX=m_posicioX-DESPLACAMENT_GRANOTA; 
+	int m_tempX = m_posicioX-DESPLACAMENT_GRANOTA; 
 	// creo una variable adicional que evita
-	// que la rana se salga hacia el lado, ya que la funcion
+	// que la rana del area de juego, ya que la funcion
 	// espaiPermes no lo evita, simplemente prohibe que se mueva
 	// una vez fuera del espaiPermes
-	if (m_tempX>=INICI_X)
+	if (m_tempX >= INICI_X)
 	{
 	m_posicioX -= DESPLACAMENT_GRANOTA;
 	}
@@ -82,12 +82,12 @@ void Granota::mouEsquerra()
  */
 void Granota::mouDreta()
 {
-	int m_tempX=m_posicioX+DESPLACAMENT_GRANOTA; 
+	int m_tempX = m_posicioX+DESPLACAMENT_GRANOTA; 
 	// creo una variable adicional que evita
-	// que la rana se salga hacia el lado, ya que la funcion
+	// que la rana se salga del area de juego, ya que la funcion
 	// espaiPermes no lo evita, simplemente prohibe que se mueva
 	// una vez fuera del espaiPermes
-	if (m_tempX<=FI_X)
+	if (m_tempX <= FI_X)
 	{
 	m_posicioX += DESPLACAMENT_GRANOTA;
 	}
@@ -98,12 +98,12 @@ void Granota::mouDreta()
  */
 void Granota::mouAmunt()
 {	
-	int m_tempY=m_posicioY-DESPLACAMENT_GRANOTA; 
+	int m_tempY = m_posicioY-DESPLACAMENT_GRANOTA; 
 	// creo una variable adicional que evita
-	// que la rana se salga hacia el lado, ya que la funcion
+	// que la rana se salga del area de juego, ya que la funcion
 	// espaiPermes no lo evita, simplemente prohibe que se mueva
 	// una vez fuera del espaiPermes
-	if (m_tempY>=INICI_Y)
+	if (m_tempY >= INICI_Y)
 	{
 		m_posicioY -= DESPLACAMENT_GRANOTA;
 		Grafic rana2;
@@ -120,12 +120,12 @@ void Granota::mouAmunt()
  */
 void Granota::mouAvall()
 {
-	int m_tempY=m_posicioY+m_grafic.getScaleY()+DESPLACAMENT_GRANOTA; 
+	int m_tempY = m_posicioY+m_grafic.getScaleY()+DESPLACAMENT_GRANOTA; 
 	// creo una variable adicional que evita
-	// que la rana se salga hacia el lado, ya que la funcion
+	// que la rana se salga del area de juego, ya que la funcion
 	// espaiPermes no lo evita, simplemente prohibe que se mueva
 	// una vez fuera del espaiPermes
-	if (m_tempY<=FI_Y)
+	if (m_tempY <= FI_Y)
 	{
 		m_posicioY += DESPLACAMENT_GRANOTA;
 	}

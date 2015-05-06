@@ -96,11 +96,12 @@ int juga(int nivell, bool animacio)
 	int puntscount= 0 ;
 	int covaOcupada = 0;
 	int covaCount = 0;
-	bool onedown = false; // controla la animacion de perder vida TODO
+	bool onedown = false;	//controla la animacion de perder vida TODO
 	int gameover = THEEND;
 	bool end = false;
 	bool godmode = false;
-	int tempmax = 60000;
+	int tempmax = 60000;	//tiempo máximo utilizado para el contador de las cuevas.
+							//1k =  1 segundo, 60k = 60segundos
 
 	if (nivell == 4 )
 	{
@@ -169,7 +170,8 @@ int juga(int nivell, bool animacio)
 		// Cotxes
 		pantalla.mouCotxes();
 				
-		t2 = clock() -t;
+		t2 = clock() -t;	//guardamos en t2 la diferencia de tiempo desde
+							// t hasta ahora
 		
 
 		if (pantalla.haMortLaGranota() || (t2 >= tempmax) )
@@ -210,7 +212,8 @@ int juga(int nivell, bool animacio)
 				}
 
 				nivell+=1;
-				tempmax = tempmax - 15000;
+				tempmax = tempmax - 15000;	//si pasamos el nivel, el contador comienza
+											//con 15 segundos menos para completar el juego
 				if (nivell<4)
 				{
 					pantalla.inicia(nivell+1);

@@ -553,25 +553,35 @@ void Pantalla::tiemporestante(int tiempo, int tempmax)
 	for(i=0;i<2;i++)												
 			{
 				if(digits[i]==0)
-				m_graficNum0.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				//m_graficNum0.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				m_graficNum0.dibuixa((FI_X - INICI_X)/2 + (i*m_graficNum0.getScaleX()), FI_Y + m_graficNum0.getScaleY());
 				if(digits[i]==1)
-				m_graficNum1.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				//m_graficNum1.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				m_graficNum1.dibuixa((FI_X - INICI_X)/2 + (i*m_graficNum0.getScaleX()), FI_Y + m_graficNum0.getScaleY());
 				if(digits[i]==2)
-				m_graficNum2.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				//m_graficNum2.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				m_graficNum2.dibuixa((FI_X - INICI_X)/2 + (i*m_graficNum0.getScaleX()), FI_Y + m_graficNum0.getScaleY());
 				if(digits[i]==3)
-				m_graficNum3.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				//m_graficNum3.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				m_graficNum3.dibuixa((FI_X - INICI_X)/2 + (i*m_graficNum0.getScaleX()), FI_Y + m_graficNum0.getScaleY());
 				if(digits[i]==4)
-				m_graficNum4.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				//m_graficNum4.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				m_graficNum4.dibuixa((FI_X - INICI_X)/2 + (i*m_graficNum0.getScaleX()), FI_Y + m_graficNum0.getScaleY());
 				if(digits[i]==5)
-				m_graficNum5.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				//m_graficNum5.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				m_graficNum5.dibuixa((FI_X - INICI_X)/2 + (i*m_graficNum0.getScaleX()), FI_Y + m_graficNum0.getScaleY());
 				if(digits[i]==6)
-				m_graficNum6.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				//m_graficNum6.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				m_graficNum6.dibuixa((FI_X - INICI_X)/2 + (i*m_graficNum0.getScaleX()), FI_Y + m_graficNum0.getScaleY());
 				if(digits[i]==7)
-				m_graficNum7.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				//m_graficNum7.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				m_graficNum7.dibuixa((FI_X - INICI_X)/2 + (i*m_graficNum0.getScaleX()), FI_Y + m_graficNum0.getScaleY());
 				if(digits[i]==8)
-				m_graficNum8.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				//m_graficNum8.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				m_graficNum8.dibuixa((FI_X - INICI_X)/2 + (i*m_graficNum0.getScaleX()), FI_Y + m_graficNum0.getScaleY());
 				if(digits[i]==9)
-				m_graficNum9.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				//m_graficNum9.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
+				m_graficNum9.dibuixa((FI_X - INICI_X)/2 + (i*m_graficNum0.getScaleX()), FI_Y + m_graficNum0.getScaleY());
 			}
 
 }

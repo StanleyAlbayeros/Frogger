@@ -82,10 +82,12 @@ void Cotxe::mouAIniciCarril(int iniciYCarril)
 	//la posición de inicio de la X depende de la dirección del vehiculo
 	// lo único que nos pasa la "main" es el carril en el que va.
 	if (m_direccio){
-	m_posicioX = INICI_X;
+	m_posicioX = INICI_X - m_grafic.getScaleX();
 	}
 	else {
-	m_posicioX = FI_X;
+	m_posicioX = FI_X ; //aqui no hace falta el getScaleX porque
+						//la esquina del coche ya comienza fuera del 
+						//tablero
 	}
 	m_posicioY= iniciYCarril;
 	

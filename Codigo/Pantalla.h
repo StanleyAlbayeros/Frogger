@@ -36,6 +36,7 @@ public:
 	void LevelUp(int yespls);
 	void puntos100(int pointsup);
 	void tiemporestante(int tiempo, int tempmax);
+	void puntuacion(int puntos);
 
 private:
 	Grafic m_graficFons;

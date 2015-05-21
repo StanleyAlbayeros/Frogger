@@ -371,6 +371,7 @@ bool Pantalla::haMortLaGranota()
  */
 void Pantalla::mouGranota(int direccio)
 {
+	//declarar rana2 y == a la rana1 
 	if (m_areaTotal.solapa(m_granota.getAreaOcupada()))
 	{
 		switch (direccio){
@@ -582,6 +583,57 @@ void Pantalla::tiemporestante(int tiempo, int tempmax)
 				if(digits[i]==9)
 				//m_graficNum9.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
 				m_graficNum9.dibuixa((FI_X - INICI_X)/2 + (i*m_graficNum0.getScaleX()), FI_Y + m_graficNum0.getScaleY());
+			}
+
+}
+
+
+void Pantalla::puntuacion(int puntos)
+{
+	int score[5];
+	int j;
+
+
+
+	score[4]= ( puntos ) / 10000 % 10 ;
+	score[3]= ( puntos ) / 1000 % 10;
+	score[2]= ( puntos ) / 100 % 10 ;
+	score[1]= ( puntos ) / 10 % 10;
+	score[0]= ( puntos ) % 10 ;
+
+
+	for(j=0;j<5;j++)												
+			{
+				if(score[j]==0)
+				//m_graficNum0.dibuixa(230+(j*m_graficNum0.getScaleX()),500);
+				m_graficNum0.dibuixa((FI_X - (5 * m_graficNum0.getScaleX())  + (j*m_graficNum0.getScaleX())), FI_Y + (m_graficNum0.getScaleY()));
+				if(score[j]==1)
+				//m_graficNum1.dibuixa(230+(j*m_graficNum0.getScaleX()),500);
+				m_graficNum1.dibuixa((FI_X - (5 * m_graficNum0.getScaleX())  + (j*m_graficNum0.getScaleX())), FI_Y + (m_graficNum0.getScaleY()));
+				if(score[j]==2)
+				//m_graficNum2.dibuixa(230+(j*m_graficNum0.getScaleX()),500);
+				m_graficNum2.dibuixa((FI_X - (5 * m_graficNum0.getScaleX())  + (j*m_graficNum0.getScaleX())), FI_Y + (m_graficNum0.getScaleY()));
+				if(score[j]==3)
+				//m_graficNum3.dibuixa(230+(j*m_graficNum0.getScaleX()),500);
+				m_graficNum3.dibuixa((FI_X - (5 * m_graficNum0.getScaleX())  + (j*m_graficNum0.getScaleX())), FI_Y + (m_graficNum0.getScaleY()));
+				if(score[j]==4)
+				//m_graficNum4.dibuixa(230+(j*m_graficNum0.getScaleX()),500);
+				m_graficNum4.dibuixa((FI_X - (5 * m_graficNum0.getScaleX())  + (j*m_graficNum0.getScaleX())), FI_Y + (m_graficNum0.getScaleY()));
+				if(score[j]==5)
+				//m_graficNum5.dibuixa(230+(j*m_graficNum0.getScaleX()),500);
+				m_graficNum5.dibuixa((FI_X - (5 * m_graficNum0.getScaleX())  + (j*m_graficNum0.getScaleX())), FI_Y + (m_graficNum0.getScaleY()));
+				if(score[j]==6)
+				//m_graficNum6.dibuixa(230+(j*m_graficNum0.getScaleX()),500);
+				m_graficNum6.dibuixa((FI_X - (5 * m_graficNum0.getScaleX())  + (j*m_graficNum0.getScaleX())), FI_Y + (m_graficNum0.getScaleY()));
+				if(score[j]==7)
+				//m_graficNum7.dibuixa(230+(j*m_graficNum0.getScaleX()),500);
+				m_graficNum7.dibuixa((FI_X - (5 * m_graficNum0.getScaleX())  + (j*m_graficNum0.getScaleX())), FI_Y + (m_graficNum0.getScaleY()));
+				if(score[j]==8)
+				//m_graficNum8.dibuixa(230+(j*m_graficNum0.getScaleX()),500);
+				m_graficNum8.dibuixa((FI_X - (5 * m_graficNum0.getScaleX())  + (j*m_graficNum0.getScaleX())), FI_Y + (m_graficNum0.getScaleY()));
+				if(score[j]==9)
+				//m_graficNum9.dibuixa(230+(j*m_graficNum0.getScaleX()),500);
+				m_graficNum9.dibuixa((FI_X - (5 * m_graficNum0.getScaleX())  + (j*m_graficNum0.getScaleX())), FI_Y + (m_graficNum0.getScaleY()));
 			}
 
 }

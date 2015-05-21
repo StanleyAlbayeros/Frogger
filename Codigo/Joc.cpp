@@ -187,7 +187,7 @@ int juga(int nivell, bool animacio)
 			{
 				puntscount = THEEND*5;				
 				covaCount++;
-				punts += 100 * nivell;
+				punts += (tempmax - t2) * nivell; // tempmax - tiempote
 				pantalla.reset(nivell);
 				t = clock();
 				t2 = t;
@@ -253,7 +253,12 @@ int juga(int nivell, bool animacio)
 			pantalla.puntos100(puntscount);
 			puntscount--;
 		}
+
+		//tiempo restante
 		pantalla.tiemporestante(t2, tempmax);
+
+		pantalla.puntuacion(punts);
+
 		VideoUpdate(estat); // Actualitza la pantalla
 
 	} while ((nivell < 4) && (vides != 0) && (!estat.bExit));

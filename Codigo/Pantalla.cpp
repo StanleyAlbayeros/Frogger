@@ -583,7 +583,8 @@ void Pantalla::tiemporestante(int tiempo, int tempmax)
 				if(digits[i]==9)
 				//m_graficNum9.dibuixa(230+(i*m_graficNum0.getScaleX()),500);
 				m_graficNum9.dibuixa((FI_X - INICI_X)/2 + (i*m_graficNum0.getScaleX()), FI_Y + m_graficNum0.getScaleY());
-			}
+				//printf("%d",digits[i]);
+	}
 
 }
 
@@ -593,13 +594,13 @@ void Pantalla::puntuacion(int puntos)
 	int score[5];
 	int j;
 
+	puntos=puntos / 1000;
 
-
-	score[4]= ( puntos ) / 10000 % 10 ;
-	score[3]= ( puntos ) / 1000 % 10;
+	score[0]= ( puntos ) / 10000 % 10 ;
+	score[1]= ( puntos ) / 1000 % 10;
 	score[2]= ( puntos ) / 100 % 10 ;
-	score[1]= ( puntos ) / 10 % 10;
-	score[0]= ( puntos ) % 10 ;
+	score[3]= ( puntos ) / 10 % 10;
+	score[4]= ( puntos ) % 10 ;
 
 
 	for(j=0;j<5;j++)												
@@ -634,6 +635,8 @@ void Pantalla::puntuacion(int puntos)
 				if(score[j]==9)
 				//m_graficNum9.dibuixa(230+(j*m_graficNum0.getScaleX()),500);
 				m_graficNum9.dibuixa((FI_X - (5 * m_graficNum0.getScaleX())  + (j*m_graficNum0.getScaleX())), FI_Y + (m_graficNum0.getScaleY()));
-			}
+			printf("%d\n",puntos);
+	}
+
 
 }

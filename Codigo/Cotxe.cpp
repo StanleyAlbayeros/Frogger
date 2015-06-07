@@ -13,11 +13,12 @@ Cotxe::Cotxe()
  * @param grafic Grafic amb el que ilustrar el vehicle
  * @param velocitat Velocitat de moviment
  */
-Cotxe::Cotxe(Grafic grafic, int velocitat, bool direccio)
+Cotxe::Cotxe(Grafic grafic, int velocitat, bool direccio, int iniciY)
 {
 	m_grafic = grafic;
 	m_velocitat = velocitat;
 	m_contador = 0;
+	m_posicioY = iniciY;
 	m_direccio= direccio;	//añado esta variable para poder cambiar 
 							//facilmente la dirección del vehículo.
 							//Probable método si se quiere implementar ++

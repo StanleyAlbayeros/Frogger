@@ -10,7 +10,7 @@ class Cotxe
 {
 public:
 	Cotxe();
-	Cotxe(Grafic grafic, int velocitat, bool direccio);
+	Cotxe(Grafic grafic, int velocitat, bool direccio, int iniciY);
 	~Cotxe();
 	Area getAreaOcupada();
 	void dibuixa();

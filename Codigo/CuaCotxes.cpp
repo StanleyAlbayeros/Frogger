@@ -1,15 +1,16 @@
 #include "CuaCotxes.h"
 #include <time.h>
 
-CuaCotxes::CuaCotxes(Grafic grafic, int velocitat, bool direccio)
+CuaCotxes::CuaCotxes(Grafic grafic, int velocitat, bool direccio, int iniciY)
 {
 	m_grafic = grafic;
 	m_velocitat = velocitat;
 	m_direccio = direccio;
+	m_iniciY = iniciY;
 	//creamos la cola y una instancia de coche que copiariemos para cada nodo de la cola
 	m_cua=Cua();
-	m_cotxe = Cotxe(m_grafic, m_velocitat, m_direccio);
-	m_nouCotxe = Cotxe(m_grafic, m_velocitat, m_direccio);
+	m_cotxe = Cotxe(m_grafic, m_velocitat, m_direccio, m_iniciY);
+	m_nouCotxe = Cotxe(m_grafic, m_velocitat, m_direccio, m_iniciY);
 	m_cua.afegeix(m_cotxe);
 }
 

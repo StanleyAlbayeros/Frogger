@@ -156,11 +156,11 @@ void Pantalla::inicia(int nivell)
 			m_randomCotxe[j]=true;
 		}
 	}
-	m_cotxe1=Cotxe(m_graficCotxe1, nivell+5 , m_randomCotxe[0]);
-	m_cotxe2=Cotxe(m_graficCotxe2, nivell+10, m_randomCotxe[1]);
-	m_cotxe3=Cotxe(m_graficCotxe3, nivell+13, m_randomCotxe[2]);
-	m_cotxe4=Cotxe(m_graficCotxe4, nivell+16, m_randomCotxe[3]);
-	m_cotxe5=Cotxe(m_graficCotxe5, nivell+24, m_randomCotxe[4]);
+	m_cotxe1=Cotxe(m_graficCotxe1, nivell+5 , m_randomCotxe[0],0);
+	m_cotxe2=Cotxe(m_graficCotxe2, nivell+10, m_randomCotxe[1],0);
+	m_cotxe3=Cotxe(m_graficCotxe3, nivell+13, m_randomCotxe[2],0);
+	m_cotxe4=Cotxe(m_graficCotxe4, nivell+16, m_randomCotxe[3],0);
+	m_cotxe5=Cotxe(m_graficCotxe5, nivell+24, m_randomCotxe[4],0);
 
 	m_cotxe1.mouAIniciCarril(triaCarril(1));
 	m_cotxe2.mouAIniciCarril(triaCarril(2));

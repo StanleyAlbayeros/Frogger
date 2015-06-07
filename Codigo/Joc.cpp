@@ -132,7 +132,10 @@ int juga(int nivell, bool animacio)
 		{
 			countdown--;
 		}
-
+		t2 = clock() -t;	//guardamos en t2 la diferencia de tiempo desde
+							// t hasta ahora
+		// Cotxes
+		pantalla.mouCotxes();
 		ProcessEvents (estat);	// Captura els events que 
 								// s'han produit en el darrer cicle
 		
@@ -169,10 +172,7 @@ int juga(int nivell, bool animacio)
 			}
 
 
-		t2 = clock() -t;	//guardamos en t2 la diferencia de tiempo desde
-							// t hasta ahora
-		// Cotxes
-		pantalla.mouCotxes();
+
 						
 
 		if (pantalla.haMortLaGranota() || (t2 >= tempmax) )
@@ -224,7 +224,10 @@ int juga(int nivell, bool animacio)
 				covaCount = 0;
 			}
 
-		
+		t2 = clock() -t;	//guardamos en t2 la diferencia de tiempo desde
+							// t hasta ahora
+		// Cotxes
+		pantalla.mouCotxes();
 		
 		count--;// Contador que controla alternar las graficas de Granota
 		

@@ -5,6 +5,7 @@
 class Node
 {
 public:
+
 	Node ();
 	Node(Cotxe cotxe);
 	Cotxe& getValor();

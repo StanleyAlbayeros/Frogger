@@ -134,6 +134,8 @@ Pantalla::~Pantalla()
  */
 void Pantalla::inicia(int nivell)
 {
+
+
 	//Coves
 	m_cova1 = Cova(m_graficCova, m_graficCovaOcupada, INICI_X, INICI_Y);
 	m_cova2 = Cova(m_graficCova, m_graficCovaOcupada, INICI_X + m_graficCova.getScaleX(), INICI_Y);
@@ -141,6 +143,28 @@ void Pantalla::inicia(int nivell)
 	m_cova4 = Cova(m_graficCova, m_graficCovaOcupada, INICI_X + ( 3 * m_graficCova.getScaleX()), INICI_Y);
 	m_cova5 = Cova(m_graficCova, m_graficCovaOcupada, INICI_X + ( 4 * m_graficCova.getScaleX()), INICI_Y);
 
+
+	
+	/*
+	m_cotxe1=Cotxe(m_graficCotxe1, nivell+5 , m_randomCotxe[0],0);
+	m_cotxe2=Cotxe(m_graficCotxe2, nivell+10, m_randomCotxe[1],0);
+	m_cotxe3=Cotxe(m_graficCotxe3, nivell+13, m_randomCotxe[2],0);
+	m_cotxe4=Cotxe(m_graficCotxe4, nivell+16, m_randomCotxe[3],0);
+	m_cotxe5=Cotxe(m_graficCotxe5, nivell+24, m_randomCotxe[4],0);
+	*/
+
+
+	
+	
+	/*
+	m_cotxe1.mouAIniciCarril(triaCarril(1));
+	m_cotxe2.mouAIniciCarril(triaCarril(2));
+	m_cotxe3.mouAIniciCarril(triaCarril(3));
+	m_cotxe4.mouAIniciCarril(triaCarril(4));
+	m_cotxe5.mouAIniciCarril(triaCarril(5));
+	*/
+	//Granota
+	m_granota.mouAPosicioInicial();
 
 	//Cotxes
 		// Fixem l'hora actual com a llavor pel generador d'aleatoris.
@@ -156,30 +180,11 @@ void Pantalla::inicia(int nivell)
 			m_randomCotxe[j]=true;
 		}
 	}
-	/*
-	m_cotxe1=Cotxe(m_graficCotxe1, nivell+5 , m_randomCotxe[0],0);
-	m_cotxe2=Cotxe(m_graficCotxe2, nivell+10, m_randomCotxe[1],0);
-	m_cotxe3=Cotxe(m_graficCotxe3, nivell+13, m_randomCotxe[2],0);
-	m_cotxe4=Cotxe(m_graficCotxe4, nivell+16, m_randomCotxe[3],0);
-	m_cotxe5=Cotxe(m_graficCotxe5, nivell+24, m_randomCotxe[4],0);
-	*/
 	m_cuaCotxes1 = CuaCotxes(m_graficCotxe1, nivell+5, m_randomCotxe[0], triaCarril(1));
-	//m_cuaCotxes2 = CuaCotxes(m_graficCotxe2, nivell+8, m_randomCotxe[1], triaCarril(2));
-	//m_cuaCotxes3 = CuaCotxes(m_graficCotxe3, nivell+11, m_randomCotxe[2], triaCarril(3));
-	//m_cuaCotxes4 = CuaCotxes(m_graficCotxe4, nivell+15, m_randomCotxe[3], triaCarril(4));
-	//m_cuaCotxes5 = CuaCotxes(m_graficCotxe5, nivell+20, m_randomCotxe[4], triaCarril(5));
-
-	
-	
-	/*
-	m_cotxe1.mouAIniciCarril(triaCarril(1));
-	m_cotxe2.mouAIniciCarril(triaCarril(2));
-	m_cotxe3.mouAIniciCarril(triaCarril(3));
-	m_cotxe4.mouAIniciCarril(triaCarril(4));
-	m_cotxe5.mouAIniciCarril(triaCarril(5));
-	*/
-	//Granota
-	m_granota.mouAPosicioInicial();
+	m_cuaCotxes2 = CuaCotxes(m_graficCotxe2, nivell+8, m_randomCotxe[1], triaCarril(2));
+	m_cuaCotxes3 = CuaCotxes(m_graficCotxe3, nivell+11, m_randomCotxe[2], triaCarril(3));
+	m_cuaCotxes4 = CuaCotxes(m_graficCotxe4, nivell+15, m_randomCotxe[3], triaCarril(4));
+	m_cuaCotxes5 = CuaCotxes(m_graficCotxe5, nivell+20, m_randomCotxe[4], triaCarril(5));
 
 }
 
@@ -272,14 +277,16 @@ void Pantalla::dibuixa(int dir, int count)
 	m_cotxe3.dibuixa();
 	m_cotxe4.dibuixa();
 	m_cotxe5.dibuixa();
-
 	*/
-	m_cuaCotxes1.dibuixaCua();	
-	//m_cuaCotxes2.dibuixaCua();
-	//m_cuaCotxes3.dibuixaCua();
-	//m_cuaCotxes4.dibuixaCua();
-	//m_cuaCotxes5.dibuixaCua();
 
+	m_cuaCotxes1.dibuixaCua();	
+	m_cuaCotxes2.dibuixaCua();
+	m_cuaCotxes3.dibuixaCua();
+	m_cuaCotxes4.dibuixaCua();
+	m_cuaCotxes5.dibuixaCua();
+
+
+	//movimiento rana
 	
 
 	if (count == 0)
@@ -311,7 +318,8 @@ void Pantalla::dibuixa(int dir, int count)
  * Mou el Cotxe.
  */
 void Pantalla::mouCotxes()
-{/*
+{
+	/*
 //mover primer coche
 	if (m_areaTotal.solapa(m_cotxe1.getAreaOcupada()))
 	{
@@ -362,10 +370,10 @@ void Pantalla::mouCotxes()
 	*/
 
 	m_cuaCotxes1.mouCua(m_areaTotal);
-	//m_cuaCotxes2.mouCua(m_areaTotal);
-	//m_cuaCotxes3.mouCua(m_areaTotal);
-	//m_cuaCotxes4.mouCua(m_areaTotal);
-	//m_cuaCotxes5.mouCua(m_areaTotal);
+	m_cuaCotxes2.mouCua(m_areaTotal);
+	m_cuaCotxes3.mouCua(m_areaTotal);
+	m_cuaCotxes4.mouCua(m_areaTotal);
+	m_cuaCotxes5.mouCua(m_areaTotal);
 }
 
 /**

@@ -1,6 +1,6 @@
 #include "Menu.h"
 #include "Joc.h"
-#include "GestioResultats.h"
+#include "Ranking.h"
 
 #define OPCIO_JUGAR '1'
 #define OPCIO_DIFFICULTAT '2'
@@ -15,13 +15,18 @@
 int main()
 {
 	char opcio;
-	int punts;
+	int punts=0;
 	int posicio = -1;
 	char nivell = '1';
 	char lletra = 'y';
 	bool animacions = true;
-	TipusJugador millorsJugadors[MAX_MILLORSJUGADORS];
-	iniciaTaulaMillorJugadors(millorsJugadors);
+	//TipusJugador millorsJugadors[MAX_MILLORSJUGADORS];
+	//iniciaTaulaTopPlayers(millorsJugadors);
+
+	Ranking topPlayers;
+
+	topPlayers.InicialitzarTaulaTopPlayers();
+	topPlayers.LlegirPuntuacions();
 
 	do
 	{
@@ -31,11 +36,11 @@ int main()
 		{
 			case OPCIO_JUGAR:
 				punts = juga(nivell-'0',animacions); // COMPTE!: aquí hi ha una conversió de char a int
-				posicio = haMilloratPuntuacio(millorsJugadors, punts);
+				posicio = topPlayers.EsMillorPuntuacio(punts);
 				if (posicio >= 0) // Ha millorat puntuacio
 				{
-					desplacaArray(millorsJugadors, posicio);
-					emplenaPosicioArray(millorsJugadors[posicio], punts);
+					topPlayers.DesplacarArray(posicio);
+					topPlayers.EmplenarPosicioArray(posicio, punts);
 				}
 				break;
 			case OPCIO_DIFFICULTAT:
@@ -85,12 +90,13 @@ int main()
 				} while ((lletra != 'y') && (lletra != 'Y') && (lletra != 'n') && (lletra != 'N')); // Repeteix mentre tecla no valida
 				break;
 			case OPCIO_PUNTUACIO:
-				escriuRanking(millorsJugadors);
+				topPlayers.EscriuRanking();
 				printf("Press a key to return to the main menu\n");
 				_getch(); // Llegeix tecla apretada
 				break;
 			
 		}
 	} while (opcio != OPCIO_SORTIR);
+	topPlayers.EscriurePuntuacions();
 	return 0;
 }

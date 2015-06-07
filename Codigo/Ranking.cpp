@@ -1,4 +1,4 @@
-#include "cRanking.h"
+#include "Ranking.h"
 #include <stdio.h>
 #include <iostream>
 
@@ -7,12 +7,12 @@ using namespace std;
 
 
 //===================================================================================
-// NOM: InicialitzarTaulaMillorJugadors
+// NOM: InicialitzarTaulaTopPlayers
 //===================================================================================
 // DESCRIPCIÓ: Inicialitza la taula que guarda les millors puntuacions amb totes les
 // puntuacions a 0
 //===================================================================================
-void cRanking::InicialitzarTaulaMillorJugadors()
+void Ranking::InicialitzarTaulaTopPlayers()
 {
 	int i;
 
@@ -32,7 +32,7 @@ void cRanking::InicialitzarTaulaMillorJugadors()
 // de la primera posició de la taula que s'ha trobat amb una puntuació inferior. Si no 
 // en troba cap d'inferior retorna un -1
 //===================================================================================
-int cRanking::EsMillorPuntuacio(int punts)
+int Ranking::EsMillorPuntuacio(int punts)
 {
 	int i=0;
 	int trobat=0;
@@ -63,7 +63,7 @@ int cRanking::EsMillorPuntuacio(int punts)
 // DESCRIPCIÓ: Mou tots els registres de la taula a partir de "posicio" una posicio a
 // la dreta per deixar lloc a un nou registre de puntuacions
 //===================================================================================
-void cRanking::DesplacarArray(int posicio)
+void Ranking::DesplacarArray(int posicio)
 {
 	int i;
 
@@ -80,7 +80,7 @@ void cRanking::DesplacarArray(int posicio)
 // DESCRIPCIÓ: omple un registre de puntuacions ("jugador") amb els punts que es passen
 // com a paràmetre i el nom que s'introdueix per teclat
 //===================================================================================
-void cRanking::EmplenarPosicioArray(int posicio,int punts)
+void Ranking::EmplenarPosicioArray(int posicio,int punts)
 {
 	printf("Entra el teu nom\n");
 	scanf("%s",&(millorsJugadors[posicio].nom));
@@ -93,7 +93,7 @@ void cRanking::EmplenarPosicioArray(int posicio,int punts)
 //===================================================================================
 // DESCRIPCIÓ: mostra per pantalla les millors puntuacions
 //===================================================================================
-void cRanking::EscriuRanking()
+void Ranking::EscriuRanking()
 {
 	int i;
 
@@ -103,7 +103,7 @@ void cRanking::EscriuRanking()
 	}
 
 }
-void cRanking::LlegirPuntuacions()
+void Ranking::LlegirPuntuacions()
 {
 	ifstream llegir;
 	bool correcte;
@@ -125,7 +125,7 @@ void cRanking::LlegirPuntuacions()
 	}
 	llegir.close();
 }
-void cRanking::EscriurePuntuacions()
+void Ranking::EscriurePuntuacions()
 {
 	ofstream escriure;
 	int i = 0;

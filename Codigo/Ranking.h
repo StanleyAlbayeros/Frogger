@@ -1,13 +1,12 @@
 #ifndef _RANKING
 #define _RANKING
-
 #include <string.h>
 
 const int MAX_NOM_JUGADOR = 15;
-const int MAX_MILLORSJUGADORS = 5;
-const char NOM_FITXER[20] = "Puntuacio.txt"; 
+const int MAX_MILLORSJUGADORS = 10;
+const char NOM_FITXER[20] = "Ranking.txt"; 
 
-// Registre que serveix per guardar la puntuació d'un jugador
+// struct para guardar la puntuacion maxima
 typedef struct
 {
   char nom[MAX_NOM_JUGADOR];
@@ -15,12 +14,12 @@ typedef struct
 }
 tJugador;
 
-class cRanking{
+class Ranking{
 
 private:
 	tJugador millorsJugadors[MAX_MILLORSJUGADORS];
 public:
-	void InicialitzarTaulaMillorJugadors();
+	void InicialitzarTaulaTopPlayers();
 	void LlegirPuntuacions();
 	void EscriurePuntuacions();
 	int  EsMillorPuntuacio( int punts);

@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void iniciaTaulaMillorJugadors(TipusJugador TMillorsJugadors[])
+void iniciaTaulaTopPlayers(TipusJugador TMillorsJugadors[])
 {
 	int i;
 	for (i = 0; i < MAX_MILLORSJUGADORS; i++)

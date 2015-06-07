@@ -44,6 +44,7 @@
     <ClCompile Include="Codigo\Pantalla.cpp" />
     <ClCompile Include="Codigo\Cotxe.cpp" />
     <ClCompile Include="Codigo\Bonus.cpp" />
+    <ClCompile Include="Codigo\Ranking.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\animaciones.h">
@@ -94,6 +95,7 @@
     <ClInclude Include="Codigo\Cova.h" />
     <ClInclude Include="Codigo\Cotxe.h" />
     <ClInclude Include="Codigo\Bonus.h" />
+    <ClInclude Include="Codigo\Ranking.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="lib">

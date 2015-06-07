@@ -24,8 +24,9 @@ Cotxe& Cua::getUltim() const
 bool Cua::afegeix(Cotxe valor)
 {
 	Node* aux;
+	aux = new Node;
 	bool correcte = false;
-	if ((aux = new Node) != NULL)
+	if (aux != NULL)
 		{
 			correcte = true;
 			aux->setValor(valor);

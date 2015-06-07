@@ -1,4 +1,5 @@
 #include "CuaCotxes.h"
+#include "lib\Grafic.h"
 #include <time.h>
 
 
@@ -17,7 +18,7 @@ CuaCotxes::CuaCotxes(Grafic grafic, int velocitat, bool direccio, int iniciY)
 	//creamos la cola y una instancia de coche que copiariemos para cada nodo de la cola
 	m_cua=Cua();
 	m_cotxe = Cotxe(m_grafic, m_velocitat, m_direccio, m_iniciY);
-	m_nouCotxe = Cotxe(m_grafic, m_velocitat, m_direccio, m_iniciY);
+	//m_nouCotxe = Cotxe(m_grafic, m_velocitat, m_direccio, m_iniciY);
 	m_cua.afegeix(m_cotxe);
 }
 
@@ -26,8 +27,8 @@ void CuaCotxes::mouCua(Area areaTotal)
 {
 	//creo un coche temporal, le asigno el último de la lista y miro si puedo spawnear un segundo coche
 	Cotxe tmp;
-	tmp = m_cua.getPrimer();
-	
+	tmp=m_cua.getUltim();
+	//tmp=Cotxe(m_grafic, m_velocitat, m_direccio, m_iniciY);
 	if (tmp.canSpawn())
 		{
 			m_cua.afegeix(m_nouCotxe);

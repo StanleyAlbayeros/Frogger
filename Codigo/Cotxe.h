@@ -16,6 +16,8 @@ public:
 	void dibuixa();
 	void mou();
 	void mouAIniciCarril(int posicioY);
+	bool canSpawn();
+
 private:
 	Grafic m_grafic;
 	bool m_direccio;

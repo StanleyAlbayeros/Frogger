@@ -45,6 +45,19 @@ Area Cotxe::getAreaOcupada()
 	return Area(x0 , x1 , y0 , y1);
 }
 
+bool Cotxe::canSpawn()
+{
+	bool canSpawn = false;
+	int tempX = INICI_X + m_grafic.getScaleX() + DESPLACAMENT_COTXE;
+
+	if (m_posicioX > tempX)
+		{
+			canSpawn = true;
+		}
+
+	return canSpawn;
+}
+
 /**
  * Dibuixa el vehicle a la posició actual.
  */

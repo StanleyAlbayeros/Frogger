@@ -7,13 +7,14 @@ class CuaCotxes
 public:
 	CuaCotxes(Grafic grafic, int velocitat, bool direccio);
 	bool getColisions(Area area);
-	void mouCua();
+	void mouCua(Area areaTotal, int iniciCarrilY);
 	void dibuixaCua();
 	~CuaCotxes(void);
 
 private:
 	Cua m_cua;
 	Cotxe m_cotxe;
+	Cotxe m_nouCotxe;
 	Grafic m_grafic;
 	bool m_direccio;
 	int m_posicioLiderX;

@@ -168,12 +168,12 @@ int juga(int nivell, bool animacio)
 					}
 			}
 
-		// Cotxes
-		pantalla.mouCotxes();
-				
+
 		t2 = clock() -t;	//guardamos en t2 la diferencia de tiempo desde
 							// t hasta ahora
-		
+		// Cotxes
+		pantalla.mouCotxes();
+						
 
 		if (pantalla.haMortLaGranota() || (t2 >= tempmax) )
 		{
@@ -196,7 +196,7 @@ int juga(int nivell, bool animacio)
 
 			}
 
-		//check de si hemos ocupado las cinco cuevas
+		//REVISAMOS SI HEMOS OCUPADO TODAS LAS CUEVAS
 		if ( covaCount == 5 )
 			{
 				// pantalla del LevelUp, el if controla si queremos animaciones de pantalla

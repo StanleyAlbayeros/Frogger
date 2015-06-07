@@ -7,7 +7,7 @@ class Node
 public:
 	Node ();
 	Node(Cotxe cotxe);
-	Cotxe& getValor() const;
+	Cotxe& getValor();
 	Node* getNext();
 	void setValor (Cotxe valor);
 	void setNext (Node* next);

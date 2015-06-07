@@ -164,10 +164,10 @@ void Pantalla::inicia(int nivell)
 	m_cotxe5=Cotxe(m_graficCotxe5, nivell+24, m_randomCotxe[4],0);
 	*/
 	m_cuaCotxes1 = CuaCotxes(m_graficCotxe1, nivell+5, m_randomCotxe[0], triaCarril(1));
-	m_cuaCotxes1 = CuaCotxes(m_graficCotxe1, nivell+8, m_randomCotxe[1], triaCarril(2));
-	m_cuaCotxes1 = CuaCotxes(m_graficCotxe1, nivell+11, m_randomCotxe[2], triaCarril(3));
-	m_cuaCotxes1 = CuaCotxes(m_graficCotxe1, nivell+15, m_randomCotxe[3], triaCarril(4));
-	m_cuaCotxes1 = CuaCotxes(m_graficCotxe1, nivell+20, m_randomCotxe[4], triaCarril(5));
+	//m_cuaCotxes2 = CuaCotxes(m_graficCotxe2, nivell+8, m_randomCotxe[1], triaCarril(2));
+	//m_cuaCotxes3 = CuaCotxes(m_graficCotxe3, nivell+11, m_randomCotxe[2], triaCarril(3));
+	//m_cuaCotxes4 = CuaCotxes(m_graficCotxe4, nivell+15, m_randomCotxe[3], triaCarril(4));
+	//m_cuaCotxes5 = CuaCotxes(m_graficCotxe5, nivell+20, m_randomCotxe[4], triaCarril(5));
 
 	
 	
@@ -275,10 +275,10 @@ void Pantalla::dibuixa(int dir, int count)
 
 	*/
 	m_cuaCotxes1.dibuixaCua();	
-	m_cuaCotxes2.dibuixaCua();
-	m_cuaCotxes3.dibuixaCua();
-	m_cuaCotxes4.dibuixaCua();
-	m_cuaCotxes5.dibuixaCua();
+	//m_cuaCotxes2.dibuixaCua();
+	//m_cuaCotxes3.dibuixaCua();
+	//m_cuaCotxes4.dibuixaCua();
+	//m_cuaCotxes5.dibuixaCua();
 
 	
 
@@ -362,10 +362,10 @@ void Pantalla::mouCotxes()
 	*/
 
 	m_cuaCotxes1.mouCua(m_areaTotal);
-	m_cuaCotxes2.mouCua(m_areaTotal);
-	m_cuaCotxes3.mouCua(m_areaTotal);
-	m_cuaCotxes4.mouCua(m_areaTotal);
-	m_cuaCotxes5.mouCua(m_areaTotal);
+	//m_cuaCotxes2.mouCua(m_areaTotal);
+	//m_cuaCotxes3.mouCua(m_areaTotal);
+	//m_cuaCotxes4.mouCua(m_areaTotal);
+	//m_cuaCotxes5.mouCua(m_areaTotal);
 }
 
 /**

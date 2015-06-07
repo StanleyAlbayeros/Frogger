@@ -27,16 +27,16 @@ void CuaCotxes::mouCua(Area areaTotal)
 {
 	//creo un coche temporal, le asigno el último de la lista y miro si puedo spawnear un segundo coche
 	Cotxe tmp;
-	tmp=m_cua.getUltim();
+	Iterador current = m_cua.getInici();
 	//tmp=Cotxe(m_grafic, m_velocitat, m_direccio, m_iniciY);
-	if (tmp.canSpawn())
+	if (current.getElement().canSpawn())
 		{
 			m_cua.afegeix(m_nouCotxe);
 		}
 	
 
 	//creo un iterador para recorrer la cola e ir moviendo los coches
-	Iterador current = m_cua.getInici();
+	//Iterador current = m_cua.getInici();
 	while (!current.esNul())
 		{
 			Cotxe tmp2 = current.getElement();

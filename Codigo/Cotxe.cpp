@@ -24,6 +24,16 @@ Cotxe::Cotxe(Grafic grafic, int velocitat, bool direccio, int iniciY)
 							//Probable método si se quiere implementar ++
 							// dificultad randomizar la dirección entre 
 							// spawns de vehiculo
+	if (m_direccio)
+		{
+		m_posicioX = INICI_X - m_grafic.getScaleX();
+		}
+	else 
+		{
+		m_posicioX = FI_X ; //aqui no hace falta el getScaleX porque
+							//la esquina del coche ya comienza fuera del 
+							//tablero
+		}
 }
 
 /**

@@ -16,12 +16,12 @@ Node::Node(Cotxe cotxe)
 	m_next = NULL;
 }
 
-Cotxe& Node::getValor() const
+Cotxe& Node::getValor()
 {
-	Cotxe temp;
-	temp = m_valor;
+	//Cotxe temp;
+	//temp = m_valor;
 
-	return temp;
+	return m_valor;
 }
 
 Node* Node::getNext()

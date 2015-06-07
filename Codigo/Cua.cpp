@@ -8,12 +8,19 @@ Cua::Cua()
 
 bool Cua::esBuida() const
 {
-	return m_primer == NULL;
+	bool esBuida = false;
+	if (m_primer == NULL)
+	{
+		esBuida = true;
+	}
+	return esBuida;
 }
 
 Cotxe& Cua::getPrimer() const
 {
-	return m_primer->getValor();
+	Cotxe tmp;
+	tmp = m_primer->getValor();
+	return tmp;
 }
 
 Cotxe& Cua::getUltim() const

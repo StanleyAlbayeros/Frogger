@@ -1,4 +1,5 @@
 #include "Pantalla.h"
+#include "CuaCotxes.h"
 #include <cstdlib>
 #include <ctime>
 

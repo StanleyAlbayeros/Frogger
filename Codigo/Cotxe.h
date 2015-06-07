@@ -2,6 +2,7 @@
 #include "Area.h"
 #include "lib\Grafic.h"
 
+
 // nº de píxels que es desplaça el cotxe a cada moviment del nivell 1
 #define DESPLACAMENT_COTXE 3
 

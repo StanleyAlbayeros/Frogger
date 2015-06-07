@@ -45,6 +45,10 @@
     <ClCompile Include="Codigo\Cotxe.cpp" />
     <ClCompile Include="Codigo\Bonus.cpp" />
     <ClCompile Include="Codigo\Ranking.cpp" />
+    <ClCompile Include="Codigo\Node.cpp" />
+    <ClCompile Include="Codigo\Cua.cpp" />
+    <ClCompile Include="Codigo\Iterador.cpp" />
+    <ClCompile Include="Codigo\CuaCotxes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\animaciones.h">
@@ -96,6 +100,10 @@
     <ClInclude Include="Codigo\Cotxe.h" />
     <ClInclude Include="Codigo\Bonus.h" />
     <ClInclude Include="Codigo\Ranking.h" />
+    <ClInclude Include="Codigo\Node.h" />
+    <ClInclude Include="Codigo\Cua.h" />
+    <ClInclude Include="Codigo\Iterador.h" />
+    <ClInclude Include="Codigo\CuaCotxes.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="lib">

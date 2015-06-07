@@ -1,17 +1,19 @@
-#include "Codigo\Cotxe.h"
+#pragma once
+#include "Cotxe.h"
 
 
 class Node
 {
 public:
-	Cotxe& getValor();
-	Node(void);
+	Node ();
+	Node(Cotxe cotxe);
+	Cotxe& getValor() const;
 	Node* getNext();
-	void setValor (<tipus_cua> valor);
+	void setValor (Cotxe valor);
 	void setNext (Node* next);
-	~Node(void);
+	~Node ();
 private:
-	<tipus_cua> m_valor;
+	Cotxe m_valor;
 	Node* m_next;
 };
 

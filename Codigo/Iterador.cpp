@@ -1,11 +1,32 @@
 #include "Iterador.h"
 
 
-Iterador::Iterador(void)
+Iterador::Iterador()
 {
+	m_posicio = NULL;
+}
+
+Iterador::Iterador(Node* posicio)
+{
+	m_posicio = posicio;
+}
+
+void Iterador::seguent()
+{
+	m_posicio = m_posicio->getNext();
+}
+
+Cotxe& Iterador::getElement() const
+{
+	return m_posicio->getValor();
+}
+
+bool Iterador::esNul() const
+{
+	return m_posicio == NULL;
 }
 
 
-Iterador::~Iterador(void)
+Iterador::~Iterador()
 {
 }

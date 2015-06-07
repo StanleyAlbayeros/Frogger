@@ -4,6 +4,7 @@
 #include "Cova.h"
 #include "Cotxe.h"
 #include "Granota.h"
+#include "CuaCotxes.h"
 
 // Inici del taulell respecte la cantonada superior esquerre
 #define INICI_X 0
@@ -94,11 +95,11 @@ private:
 
 	Granota m_granota;
 
-	Cotxe m_cotxe1;
-	Cotxe m_cotxe2;
-	Cotxe m_cotxe3;
-	Cotxe m_cotxe4;
-	Cotxe m_cotxe5;
+	CuaCotxes m_cuaCotxes1;
+	CuaCotxes m_cuaCotxes2;
+	CuaCotxes m_cuaCotxes3;
+	CuaCotxes m_cuaCotxes4;
+	CuaCotxes m_cuaCotxes5;
 
 	int m_iniciCarrilsY;
 	int m_nCarrils1;

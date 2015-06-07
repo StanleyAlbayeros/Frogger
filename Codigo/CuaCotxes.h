@@ -1,3 +1,4 @@
+#pragma once
 #include "Cua.h"
 #include "Iterador.h"
 #include "Node.h"
@@ -5,9 +6,10 @@
 class CuaCotxes
 {
 public:
+	CuaCotxes();
 	CuaCotxes(Grafic grafic, int velocitat, bool direccio, int iniciY);
-	bool getColisions(Area area);
-	void mouCua(Area areaTotal, int iniciCarrilY);
+	bool tenimColisioAmbGranota(Area areaGranota);
+	void mouCua(Area areaTotal);
 	void dibuixaCua();
 	~CuaCotxes(void);
 

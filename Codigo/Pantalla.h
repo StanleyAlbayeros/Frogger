@@ -5,6 +5,7 @@
 #include "Cotxe.h"
 #include "Granota.h"
 #include "CuaCotxes.h"
+#include "Bonus.h"
 
 // Inici del taulell respecte la cantonada superior esquerre
 #define INICI_X 0
@@ -38,6 +39,7 @@ public:
 	void puntos100(int pointsup, int suma);
 	void tiemporestante(int tiempo, int tempmax);
 	void puntuacion(int puntos);
+	bool haAgafatBonus();
 
 private:
 	Grafic m_graficFons;
@@ -74,6 +76,8 @@ private:
 	Grafic m_LevelUp4;
 	Grafic m_LevelUp5;
 
+	Grafic m_graficOneUp;
+
 	Grafic m_graficNum0;
 	Grafic m_graficNum1;
 	Grafic m_graficNum2;
@@ -92,6 +96,8 @@ private:
 	Cova m_cova3;
 	Cova m_cova4;
 	Cova m_cova5;
+
+	Bonus m_oneUp;
 
 	Granota m_granota;
 

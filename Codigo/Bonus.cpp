@@ -15,6 +15,7 @@ Bonus::Bonus()
 Bonus::Bonus(Grafic grafic)
 {
 	m_grafic = grafic;
+	m_direccio = DIRECCIO_INICIAL;
 }
 
 /**
@@ -41,55 +42,22 @@ void Bonus::dibuixa()
 }
 
 /**
- * Mou el objecte de bonus.
- */
-void Bonus::mou(int posicio, int direccio)
-{
-	int m_tempX;
-	int m_tempY;
-	switch (direccio)
-	{
-		case 1:
-				m_tempX = m_posicioX-DESPLACAMENT_BONUS; 
-
-				if (m_tempX >= INICI_X)
-				{
-				m_posicioX -= DESPLACAMENT_BONUS;
-				}
-				break;
-		case 2:
-				m_tempX = m_posicioX+DESPLACAMENT_BONUS; 
-				if (m_tempX <= FI_X)
-				{
-				m_posicioX += DESPLACAMENT_BONUS;
-				}
-				break;
-		case 3:
-				m_tempY = m_posicioY-DESPLACAMENT_BONUS; 
-
-				if (m_tempY >= INICI_Y)
-				{
-					m_posicioY -= DESPLACAMENT_BONUS;
-				}
-				break;
-		case 4:
-				m_tempY = m_posicioY+DESPLACAMENT_BONUS; 
-
-				if (m_tempY >= INICI_Y)
-				{
-					m_posicioY += DESPLACAMENT_BONUS;
-				}
-				break;
-	}
-}
-
-/**
  * Mou el objecte bonus a una posicio inicial
  * @param iniciXCarril Coordenada X inicial del carril
  * @param iniciYCarril Coordenada Y del carril
  */
-void Bonus::mouAPosicioInicial(int posicioX, int posicioY)
+void Bonus::setCoordenadas(int X, int Y)
 {
-	m_posicioX= posicioX;
-	m_posicioY= posicioY;
+	m_posicioX=X;
+	m_posicioY=Y;
+}
+
+int Bonus::getDireccio()
+{
+	return m_direccio;
+}
+
+void Bonus::setDireccio(int direccio)
+{
+	 m_direccio = direccio;
 }

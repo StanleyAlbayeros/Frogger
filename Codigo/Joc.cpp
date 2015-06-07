@@ -261,6 +261,13 @@ int juga(int nivell, bool animacio)
 
 		pantalla.puntuacion(punts);
 
+		//Bonus
+		if (pantalla.haAgafatBonus())
+		{
+			vides++;
+		}
+
+
 		VideoUpdate(estat); // Actualitza la pantalla
 
 	} while (/*(nivell < 4) &&*/ (vides != 0) && (!estat.bExit));

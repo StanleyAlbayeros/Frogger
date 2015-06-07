@@ -77,6 +77,9 @@ Pantalla::Pantalla()
 	m_graficNum8.crea("data/numeros/numero0008.png");
 	m_graficNum9.crea("data/numeros/numero0009.png");
 
+	//Grafics dels bonus
+	m_graficOneUp.crea("data/GraficsGranota/Granota_Amunt_2.png");
+
 	for (int j=0 ; j<5 ; j++)
 	{
 		m_randomCotxe[j]=0;
@@ -143,26 +146,10 @@ void Pantalla::inicia(int nivell)
 	m_cova4 = Cova(m_graficCova, m_graficCovaOcupada, INICI_X + ( 3 * m_graficCova.getScaleX()), INICI_Y);
 	m_cova5 = Cova(m_graficCova, m_graficCovaOcupada, INICI_X + ( 4 * m_graficCova.getScaleX()), INICI_Y);
 
+	//Bonus
+	m_oneUp = Bonus(m_graficOneUp);
+	m_oneUp.setCoordenadas((FI_X - INICI_X)/2, (FI_Y - INICI_Y)/2);
 
-	
-	/*
-	m_cotxe1=Cotxe(m_graficCotxe1, nivell+5 , m_randomCotxe[0],0);
-	m_cotxe2=Cotxe(m_graficCotxe2, nivell+10, m_randomCotxe[1],0);
-	m_cotxe3=Cotxe(m_graficCotxe3, nivell+13, m_randomCotxe[2],0);
-	m_cotxe4=Cotxe(m_graficCotxe4, nivell+16, m_randomCotxe[3],0);
-	m_cotxe5=Cotxe(m_graficCotxe5, nivell+24, m_randomCotxe[4],0);
-	*/
-
-
-	
-	
-	/*
-	m_cotxe1.mouAIniciCarril(triaCarril(1));
-	m_cotxe2.mouAIniciCarril(triaCarril(2));
-	m_cotxe3.mouAIniciCarril(triaCarril(3));
-	m_cotxe4.mouAIniciCarril(triaCarril(4));
-	m_cotxe5.mouAIniciCarril(triaCarril(5));
-	*/
 	//Granota
 	m_granota.mouAPosicioInicial();
 
@@ -277,13 +264,7 @@ void Pantalla::dibuixa(int dir, int count)
 	m_cova3.dibuixa();
 	m_cova4.dibuixa();
 	m_cova5.dibuixa();
-	/*
-	m_cotxe1.dibuixa();
-	m_cotxe2.dibuixa();
-	m_cotxe3.dibuixa();
-	m_cotxe4.dibuixa();
-	m_cotxe5.dibuixa();
-	*/
+
 
 	m_cuaCotxes1.dibuixaCua();	
 	m_cuaCotxes2.dibuixaCua();
@@ -318,6 +299,8 @@ void Pantalla::dibuixa(int dir, int count)
 	
 	}
 	m_granota.dibuixa();
+
+	m_oneUp.dibuixa();
 }
 
 /**
@@ -468,24 +451,12 @@ void Pantalla::mouGranota(int direccio)
 //Funcio que mostra les vides
 void Pantalla::mostraVides (int life, bool onedown)
 {
-	switch (life)
-	{
-		case 1:
-			m_graficGranotaAmunt.dibuixa(INICI_X, FI_Y+10+m_graficGranotaAmunt.getScaleY());
-			break;
-			
-		case 2:
-			m_graficGranotaAmunt.dibuixa(INICI_X, FI_Y+10+m_graficGranotaAmunt.getScaleY());
-			m_graficGranotaAmunt.dibuixa(INICI_X+m_graficGranotaAmunt.getScaleX(), FI_Y+10+m_graficGranotaAmunt.getScaleY());
-			break;
-		
-		case 3:
-			m_graficGranotaAmunt.dibuixa(INICI_X, FI_Y+10+m_graficGranotaAmunt.getScaleY());
-			m_graficGranotaAmunt.dibuixa(INICI_X+m_graficGranotaAmunt.getScaleX(), FI_Y+10+m_graficGranotaAmunt.getScaleY());
-			m_graficGranotaAmunt.dibuixa(INICI_X+(2*m_graficGranotaAmunt.getScaleX()), FI_Y+10+m_graficGranotaAmunt.getScaleY());
-			break;
+	int i=0;
+	for(i=0;i<life;i++)
+		{
+			m_graficGranotaAmunt.dibuixa(INICI_X+(i*m_graficGranotaAmunt.getScaleX()), FI_Y+10+(m_graficGranotaAmunt.getScaleY()));
+		}
 
-	}
 }
 
 void Pantalla::puntos100(int pointsup, int suma)
@@ -794,4 +765,17 @@ void Pantalla::puntuacion(int puntos)
 	}
 
 
+}
+
+
+bool Pantalla::haAgafatBonus()
+{
+	bool agafat = false;
+
+	if (m_oneUp.getAreaOcupada().solapa(m_granota.getAreaOcupada()))
+	{
+		agafat=true;
+		m_oneUp.setCoordenadas(900, 900);
+	}
+	return agafat;
 }

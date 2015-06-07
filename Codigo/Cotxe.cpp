@@ -30,7 +30,7 @@ Cotxe::Cotxe(Grafic grafic, int velocitat, bool direccio, int iniciY)
 		}
 	else 
 		{
-		m_posicioX = FI_X ; //aqui no hace falta el getScaleX porque
+		m_posicioX = FI_X - 1 ; //aqui no hace falta el getScaleX porque
 							//la esquina del coche ya comienza fuera del 
 							//tablero
 		}
@@ -59,23 +59,25 @@ Area Cotxe::getAreaOcupada()
 bool Cotxe::canSpawn()
 {
 	bool canSpawn = false;
-	int tempX;
+	
 
 	if (m_direccio)
 		{
+			int tempX=0;
 			tempX = (INICI_X + 5*m_grafic.getScaleX() + DESPLACAMENT_COTXE);
 
-			if (m_posicioX > tempX)
+			if (m_posicioX >= tempX)
 			{
 				canSpawn = true;
 			}
 		}
 	if (!m_direccio)
 		{
+			int tempX=0;
 			tempX = (FI_X - (5*m_grafic.getScaleX()) - DESPLACAMENT_COTXE);
 			if (m_posicioX < tempX)
 			{
-				canSpawn = true;
+				canSpawn <= true;
 			}
 		}
 	return canSpawn;

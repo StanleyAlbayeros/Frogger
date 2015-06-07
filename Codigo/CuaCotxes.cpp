@@ -28,6 +28,7 @@ CuaCotxes::CuaCotxes(Grafic grafic, int velocitat, bool direccio, int iniciY, in
 void CuaCotxes::mouCua(Area areaTotal, int temps)
 {
 	bool spawn = m_spawn;
+
 	if (m_cua.esBuida())
 		{
 			m_cua.afegeix(m_nouCotxe);
@@ -36,16 +37,7 @@ void CuaCotxes::mouCua(Area areaTotal, int temps)
 
 
 
-	Cotxe tmp3;
-	tmp3 = m_cua.getPrimer();
-	if (!areaTotal.solapa(tmp3.getAreaOcupada()))
-		{
-			m_cua.treu();
-			if ((m_cua.getUltim().canSpawn())&&(m_cua.numElements() <= 4))
-				{
-					m_cua.afegeix(m_nouCotxe);
-				}
-		}
+
 
 	//creo un iterador para recorrer la cola e ir moviendo los coches
 	Iterador current = m_cua.getInici();
@@ -70,6 +62,7 @@ void CuaCotxes::mouCua(Area areaTotal, int temps)
 			///////////////////////////////////////////////////////////////////////////////////////////////////
 			current.seguent();
 		}
+		
 
 		if ((temps%15 == 1)&&(spawn))
 		{
@@ -82,6 +75,18 @@ void CuaCotxes::mouCua(Area areaTotal, int temps)
 				spawn = false;
 			}
 		}	
+
+		Cotxe tmp3;
+		tmp3 = m_cua.getPrimer();
+		if (!areaTotal.solapa(tmp3.getAreaOcupada()))
+			{
+			
+				if ((m_cua.getUltim().canSpawn())&&(m_cua.numElements() <= 4))
+					{
+						m_cua.afegeix(m_nouCotxe);
+					}
+				m_cua.treu();
+			}
 }
 
 

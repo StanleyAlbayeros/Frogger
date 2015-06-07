@@ -59,13 +59,25 @@ Area Cotxe::getAreaOcupada()
 bool Cotxe::canSpawn()
 {
 	bool canSpawn = false;
-	int tempX = INICI_X + m_grafic.getScaleX() + DESPLACAMENT_COTXE;
+	int tempX;
 
-	if (m_posicioX > tempX)
+	if (m_direccio)
 		{
-			canSpawn = true;
-		}
+			tempX = (INICI_X + 5*m_grafic.getScaleX() + DESPLACAMENT_COTXE);
 
+			if (m_posicioX > tempX)
+			{
+				canSpawn = true;
+			}
+		}
+	if (!m_direccio)
+		{
+			tempX = (FI_X - (5*m_grafic.getScaleX()) - DESPLACAMENT_COTXE);
+			if (m_posicioX < tempX)
+			{
+				canSpawn = true;
+			}
+		}
 	return canSpawn;
 }
 

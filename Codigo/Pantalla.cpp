@@ -167,7 +167,7 @@ void Pantalla::inicia(int nivell)
 	m_granota.mouAPosicioInicial();
 
 	//Cotxes
-		// Fixem l'hora actual com a llavor pel generador d'aleatoris.
+	// Fixem l'hora actual com a llavor pel generador d'aleatoris.
 	std::srand(std::time(0));
 	for (int j=0 ; j<5 ; j++)
 	{
@@ -180,11 +180,17 @@ void Pantalla::inicia(int nivell)
 			m_randomCotxe[j]=true;
 		}
 	}
-	m_cuaCotxes1 = CuaCotxes(m_graficCotxe1, nivell+5, m_randomCotxe[0], triaCarril(1));
-	m_cuaCotxes2 = CuaCotxes(m_graficCotxe2, nivell+8, m_randomCotxe[1], triaCarril(2));
-	m_cuaCotxes3 = CuaCotxes(m_graficCotxe3, nivell+11, m_randomCotxe[2], triaCarril(3));
-	m_cuaCotxes4 = CuaCotxes(m_graficCotxe4, nivell+15, m_randomCotxe[3], triaCarril(4));
-	m_cuaCotxes5 = CuaCotxes(m_graficCotxe5, nivell+20, m_randomCotxe[4], triaCarril(5));
+	bool spawn = false;
+	if (nivell >= 2)
+	{
+		spawn =true;
+	}
+
+	m_cuaCotxes1 = CuaCotxes(m_graficCotxe1, nivell+5, m_randomCotxe[0], triaCarril(1), spawn);
+	m_cuaCotxes2 = CuaCotxes(m_graficCotxe2, nivell+9, m_randomCotxe[1], triaCarril(2), spawn);
+	m_cuaCotxes3 = CuaCotxes(m_graficCotxe3, nivell+13, m_randomCotxe[2], triaCarril(3), spawn);
+	m_cuaCotxes4 = CuaCotxes(m_graficCotxe4, nivell+17, m_randomCotxe[3], triaCarril(4), spawn);
+	m_cuaCotxes5 = CuaCotxes(m_graficCotxe5, nivell+21, m_randomCotxe[4], triaCarril(5), spawn);
 
 }
 
@@ -317,7 +323,7 @@ void Pantalla::dibuixa(int dir, int count)
 /**
  * Mou el Cotxe.
  */
-void Pantalla::mouCotxes()
+void Pantalla::mouCotxes(int t2)
 {
 	/*
 //mover primer coche
@@ -369,11 +375,11 @@ void Pantalla::mouCotxes()
 	}
 	*/
 
-	m_cuaCotxes1.mouCua(m_areaTotal);
-	m_cuaCotxes2.mouCua(m_areaTotal);
-	m_cuaCotxes3.mouCua(m_areaTotal);
-	m_cuaCotxes4.mouCua(m_areaTotal);
-	m_cuaCotxes5.mouCua(m_areaTotal);
+	m_cuaCotxes1.mouCua(m_areaTotal, t2);
+	m_cuaCotxes2.mouCua(m_areaTotal, t2);
+	m_cuaCotxes3.mouCua(m_areaTotal, t2);
+	m_cuaCotxes4.mouCua(m_areaTotal, t2);
+	m_cuaCotxes5.mouCua(m_areaTotal, t2);
 }
 
 /**

@@ -17,7 +17,7 @@ int main()
 	char opcio;
 	int punts=0;
 	int posicio = -1;
-	char nivell = '1';
+	char nivell = '2';
 	char lletra = 'y';
 	bool animacions = true;
 	//TipusJugador millorsJugadors[MAX_MILLORSJUGADORS];

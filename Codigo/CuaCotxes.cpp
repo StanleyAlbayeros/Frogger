@@ -1,20 +1,21 @@
 #include "CuaCotxes.h"
 #include "lib\Grafic.h"
 #include <time.h>
-
-
+#include <ctime>
+#include <cstdlib>
 
 CuaCotxes::CuaCotxes()
 {
 }
 
 
-CuaCotxes::CuaCotxes(Grafic grafic, int velocitat, bool direccio, int iniciY)
+CuaCotxes::CuaCotxes(Grafic grafic, int velocitat, bool direccio, int iniciY, int spawn)
 {
 	m_grafic = grafic;
 	m_velocitat = velocitat;
 	m_direccio = direccio;
 	m_iniciY = iniciY;
+	m_spawn=spawn;
 	//creamos la cola y una instancia de coche que copiariemos para cada nodo de la cola
 	m_cua=Cua();
 	m_cotxe = Cotxe(m_grafic, m_velocitat, m_direccio, m_iniciY);
@@ -24,28 +25,26 @@ CuaCotxes::CuaCotxes(Grafic grafic, int velocitat, bool direccio, int iniciY)
 }
 
 
-void CuaCotxes::mouCua(Area areaTotal)
+void CuaCotxes::mouCua(Area areaTotal, int temps)
 {
-	//creo un coche temporal, le asigno el último de la lista y miro si puedo spawnear un segundo coche
+	bool spawn = m_spawn;
 	if (m_cua.esBuida())
 		{
 			m_cua.afegeix(m_nouCotxe);
 		}
 	
-	Cotxe tmp;
-	tmp = m_cua.getPrimer();
-	
-	if (tmp.canSpawn())
-		{
-			m_cua.afegeix(m_nouCotxe);
-		}
-	
+
+
+
 	Cotxe tmp3;
 	tmp3 = m_cua.getPrimer();
 	if (!areaTotal.solapa(tmp3.getAreaOcupada()))
 		{
 			m_cua.treu();
-			m_cua.afegeix(m_nouCotxe);
+			if ((m_cua.getUltim().canSpawn())&&(m_cua.numElements() <= 4))
+				{
+					m_cua.afegeix(m_nouCotxe);
+				}
 		}
 
 	//creo un iterador para recorrer la cola e ir moviendo los coches
@@ -72,7 +71,17 @@ void CuaCotxes::mouCua(Area areaTotal)
 			current.seguent();
 		}
 
-
+		if ((temps%15 == 1)&&(spawn))
+		{
+			Cotxe tmp;
+			tmp = m_cua.getUltim();
+			
+			if (tmp.canSpawn() )
+			{
+				m_cua.afegeix(m_nouCotxe);
+				spawn = false;
+			}
+		}	
 }
 
 

@@ -30,7 +30,7 @@ public:
 	void dibuixa(int dir, int count);
 	void mouGranota(int direccio);
 	int esGranotaDinsCova();
-	void mouCotxes();
+	void mouCotxes(int t2);
 	bool haMortLaGranota();
 	void mostraVides(int life, bool onedown);
 	void GameOver(int nopls);

@@ -4,6 +4,7 @@ Cua::Cua()
 {
 	m_primer = NULL;
 	m_ultim = NULL;
+	m_elements = 0;
 }
 
 bool Cua::esBuida() const
@@ -50,7 +51,13 @@ bool Cua::afegeix(Cotxe valor)
 				}
 			m_ultim = aux;
 		}
+	m_elements = m_elements+1;
 	return correcte;
+}
+
+int Cua::numElements()
+{
+	return m_elements;
 }
 
 Cotxe Cua::treu()
@@ -69,6 +76,7 @@ Cotxe Cua::treu()
 	m_primer = aux->getNext();
 
 	delete aux;
+	m_elements = m_elements -1;
 
 	return valor;
 }

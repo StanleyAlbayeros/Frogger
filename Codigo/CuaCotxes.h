@@ -7,9 +7,9 @@ class CuaCotxes
 {
 public:
 	CuaCotxes();
-	CuaCotxes(Grafic grafic, int velocitat, bool direccio, int iniciY);
+	CuaCotxes(Grafic grafic, int velocitat, bool direccio, int iniciY, int spawn);
 	bool tenimColisioAmbGranota(Area areaGranota);
-	void mouCua(Area areaTotal);
+	void mouCua(Area areaTotal, int temps);
 	void dibuixaCua();
 	~CuaCotxes(void);
 
@@ -21,6 +21,7 @@ private:
 	bool m_direccio;
 	int m_posicioLiderX;
 	int m_posicioLiderY;
+	bool m_spawn;
 	int m_velocitat;
 	int m_contador;
 	int m_iniciY;

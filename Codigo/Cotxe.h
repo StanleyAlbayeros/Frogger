@@ -4,7 +4,7 @@
 
 
 // nº de píxels que es desplaça el cotxe a cada moviment del nivell 1
-#define DESPLACAMENT_COTXE 3
+#define DESPLACAMENT_COTXE 2
 
 class Cotxe
 {

@@ -43,6 +43,7 @@
     <ClCompile Include="Codigo\Granota.cpp" />
     <ClCompile Include="Codigo\Pantalla.cpp" />
     <ClCompile Include="Codigo\Cotxe.cpp" />
+    <ClCompile Include="Codigo\Bonus.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\animaciones.h">
@@ -92,6 +93,7 @@
     <ClInclude Include="Codigo\Area.h" />
     <ClInclude Include="Codigo\Cova.h" />
     <ClInclude Include="Codigo\Cotxe.h" />
+    <ClInclude Include="Codigo\Bonus.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="lib">

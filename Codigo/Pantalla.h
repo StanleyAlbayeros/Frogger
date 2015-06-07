@@ -34,7 +34,7 @@ public:
 	void mostraVides(int life, bool onedown);
 	void GameOver(int nopls);
 	void LevelUp(int yespls);
-	void puntos100(int pointsup);
+	void puntos100(int pointsup, int suma);
 	void tiemporestante(int tiempo, int tempmax);
 	void puntuacion(int puntos);
 

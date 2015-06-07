@@ -83,25 +83,26 @@ int juga(int nivell, bool animacio)
 	// Inicialitzem
 	InitGame (estat);
 	Pantalla pantalla;
-	char tecla = 0; // Variable char on desar la tecla pulsada
-	int countdown = 100000000; // iniciamos una cuenta atrás para evitar que se pueda ganar el juego manteniendo dir(up)!
-	int haMortLaGranota = 0; // Variable boleana per 
-							//saber si la granota esta morta
+	char tecla = 0;				// Variable char on desar la tecla pulsada
+	int countdown = 100000000;	// iniciamos una cuenta atrás para evitar que se pueda ganar el juego manteniendo dir(up)!
+	int haMortLaGranota = 0;	// Variable boleana per 
+								//saber si la granota esta morta
 
-	int iter = 0; //controla gameover/levelup
-	int punts = 0; // Punts acumulats durant la partida
-	int vides = 3; // Vides que li queden a la granota
+	int iter = 0;				//controla gameover/levelup
+	int punts = 0;				// Punts acumulats durant la partida
+	int vides = 3;				// Vides que li queden a la granota
 	int count = 10;
 	int dir = 0;
 	int puntscount= 0 ;
+	int sumapunts = 0 ; 
 	int covaOcupada = 0;
 	int covaCount = 0;
-	bool onedown = false;	//controla la animacion de perder vida TODO
+	bool onedown = false;		//controla la animacion de perder vida TODO
 	int gameover = THEEND;
 	bool end = false;
 	bool godmode = false;
-	int tempmax = 60000;	//tiempo máximo utilizado para el contador de las cuevas.
-							//1k =  1 segundo, 60k = 60segundos
+	int tempmax = 60000;		//tiempo máximo utilizado para el contador de las cuevas.
+								//1k =  1 segundo, 60k = 60segundos
 
 	if (nivell == 4 )
 	{
@@ -187,7 +188,8 @@ int juga(int nivell, bool animacio)
 			{
 				puntscount = THEEND*5;				
 				covaCount++;
-				punts += (tempmax - t2) * nivell; // tempmax - tiempote
+				sumapunts = ((tempmax - t2) * nivell )/1000;			//formula para calcular el score
+				punts += sumapunts;
 				pantalla.reset(nivell);
 				t = clock();
 				t2 = t;
@@ -250,7 +252,7 @@ int juga(int nivell, bool animacio)
 
 		if (animacio)
 		{
-			pantalla.puntos100(puntscount);
+			pantalla.puntos100(puntscount, sumapunts);
 			puntscount--;
 		}
 
@@ -261,7 +263,7 @@ int juga(int nivell, bool animacio)
 
 		VideoUpdate(estat); // Actualitza la pantalla
 
-	} while ((nivell < 4) && (vides != 0) && (!estat.bExit));
+	} while (/*(nivell < 4) &&*/ (vides != 0) && (!estat.bExit));
 
 	Video_Release(); // Allibera els recursos
 
